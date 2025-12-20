@@ -1,82 +1,61 @@
 import Link from 'next/link'
-import { MapPin, Phone, Mail } from 'lucide-react'
+import { Instagram, Linkedin, Mail } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-neutral-text-primary text-neutral-bg-base">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              {/* Clean footer logo */}
-              <img 
-                src="/logo.png" 
-                alt="Anoa Investama" 
-                className="h-12 w-12 object-contain"
-              />
-              <div>
-                <div className="font-serif font-bold text-xl">ANOA</div>
-                <div className="font-sans text-xs tracking-widest">INVESTAMA</div>
-              </div>
-            </div>
-            <p className="font-sans text-sm leading-relaxed text-neutral-bg-base/90">
-              Professional wealth management services by Cambridge and LSE alumni. 
-              Conservative value investing for Indonesian families.
+    <footer className="bg-[#EBE7DC] border-t border-brand-900/10 pt-24 pb-12 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+          
+          {/* Column 1: Brand */}
+          <div className="md:col-span-1">
+            <h4 className="font-serif text-2xl text-brand-900 mb-6 tracking-wide">Anoa Investama</h4>
+            <p className="font-sans text-xs text-brand-900/60 leading-relaxed max-w-xs">
+              A private extension for family offices. Preserving wealth through disciplined value investing in the Indonesian market.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Column 2: Navigation */}
           <div>
-            <h3 className="font-serif font-bold text-lg mb-4 text-neutral-bg-base">QUICK LINKS</h3>
-            <ul className="space-y-2">
-              <li><Link href="/plans" className="font-sans text-sm text-neutral-bg-base/90 hover:text-accent-gold transition-colors">Investment Plans</Link></li>
-              <li><Link href="/process" className="font-sans text-sm text-neutral-bg-base/90 hover:text-accent-gold transition-colors">Our Process</Link></li>
-              <li><Link href="/about" className="font-sans text-sm text-neutral-bg-base/90 hover:text-accent-gold transition-colors">About Us</Link></li>
-              <li><Link href="/contact" className="font-sans text-sm text-neutral-bg-base/90 hover:text-accent-gold transition-colors">Contact</Link></li>
+            <h5 className="font-serif text-lg text-brand-900 mb-6">Explore</h5>
+            <ul className="flex flex-col gap-4 text-[11px] uppercase tracking-[0.2em] font-semibold text-brand-900/60">
+              <Link href="/#philosophy" className="hover:text-brand-900 transition-colors">Philosophy</Link>
+              <Link href="/#process" className="hover:text-brand-900 transition-colors">Process</Link>
+              <Link href="/#plans" className="hover:text-brand-900 transition-colors">Strategies</Link>
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Column 3: Legal */}
           <div>
-            <h3 className="font-serif font-bold text-lg mb-4 text-neutral-bg-base">SERVICES</h3>
-            <ul className="space-y-2">
-              <li className="font-sans text-sm text-neutral-bg-base/90">6% Annual Plan</li>
-              <li className="font-sans text-sm text-neutral-bg-base/90">10% Annual Plan</li>
-              <li className="font-sans text-sm text-neutral-bg-base/90">Portfolio Management</li>
-              <li className="font-sans text-sm text-neutral-bg-base/90">Wealth Consulting</li>
+            <h5 className="font-serif text-lg text-brand-900 mb-6">Legal</h5>
+            <ul className="flex flex-col gap-4 text-[11px] uppercase tracking-[0.2em] font-semibold text-brand-900/60">
+              <Link href="#" className="hover:text-brand-900 transition-colors">Privacy Policy</Link>
+              <Link href="#" className="hover:text-brand-900 transition-colors">Terms (SPPD)</Link>
+              <Link href="#" className="hover:text-brand-900 transition-colors">Disclaimer</Link>
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Column 4: Contact */}
           <div>
-            <h3 className="font-serif font-bold text-lg mb-4 text-neutral-bg-base">CONTACT</h3>
-            <div className="space-y-3">
-              <div className="flex items-start space-x-3">
-                <MapPin size={16} className="text-accent-gold mt-1 flex-shrink-0" />
-                <span className="font-sans text-sm text-neutral-bg-base/90">Jakarta, Indonesia</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone size={16} className="text-accent-gold flex-shrink-0" />
-                <span className="font-sans text-sm text-neutral-bg-base/90">+62 xxx xxxx xxxx</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail size={16} className="text-accent-gold flex-shrink-0" />
-                <span className="font-sans text-sm text-neutral-bg-base/90">info@anoainvestama.com</span>
-              </div>
+            <h5 className="font-serif text-lg text-brand-900 mb-6">Connect</h5>
+            <div className="flex gap-4 text-brand-900/60">
+              <Link href="#" className="hover:text-brand-900 transition-colors"><Linkedin size={20} strokeWidth={1} /></Link>
+              <Link href="#" className="hover:text-brand-900 transition-colors"><Instagram size={20} strokeWidth={1} /></Link>
+              <Link href="mailto:hello@anoa.com" className="hover:text-brand-900 transition-colors"><Mail size={20} strokeWidth={1} /></Link>
             </div>
+            <p className="mt-6 font-sans text-xs text-brand-900/40">
+              Jakarta, Indonesia
+            </p>
           </div>
         </div>
 
-        <div className="border-t border-neutral-bg-base/20 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="font-sans text-sm text-neutral-bg-base/90">
-              © 2025 Anoa Investama. All rights reserved.
-            </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <span className="font-sans text-xs text-neutral-bg-base/90">Privacy Policy</span>
-              <span className="font-sans text-xs text-neutral-bg-base/90">Terms of Service</span>
-            </div>
+        {/* Bottom Bar */}
+        <div className="border-t border-brand-900/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="font-sans text-[10px] uppercase tracking-widest text-brand-900/40">
+            &copy; {new Date().getFullYear()} Anoa Asset Management.
+          </p>
+          <div className="flex gap-8">
+             {/* Optional extra links */}
           </div>
         </div>
       </div>

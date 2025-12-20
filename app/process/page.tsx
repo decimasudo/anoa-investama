@@ -1,4 +1,13 @@
-import { Calculator, FileText, Shield, Key, Eye, BarChart3 } from 'lucide-react'
+'use client'
+
+import { motion } from 'framer-motion'
+import { Calculator, FileText, Shield, Key, Eye, BarChart3, Check } from 'lucide-react'
+
+// Animation Variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 }
+}
 
 export default function Process() {
   const steps = [
@@ -83,246 +92,252 @@ export default function Process() {
   ]
 
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="py-24 bg-neutral-bg-base">
+    <div className="overflow-hidden">
+      
+      {/* --- HERO SECTION --- */}
+      <section className="py-32 bg-neutral-bg-base border-b border-neutral-border/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="font-serif font-bold text-4xl md:text-5xl text-neutral-text-primary mb-6">
-              THE HOME INVESTMENT PROCESS
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0 }}
+            className="text-center mb-16"
+          >
+            <span className="inline-block py-1 px-3 border border-accent-bronze/30 rounded-full text-accent-bronze font-sans text-xs font-bold tracking-widest mb-6">
+              THE JOURNEY
+            </span>
+            <h1 className="font-serif font-bold text-4xl md:text-6xl text-brand-900 mb-6">
+              HOME INVESTMENT <br/> PROCESS
             </h1>
-            <p className="font-sans text-xl text-neutral-text-secondary max-w-4xl mx-auto leading-relaxed">
-              Our transparent 6-step investment journey ensures clarity, compliance, and optimal results. 
-              No hidden processes, no complex procedures – just professional wealth management done right.
+            <p className="font-sans text-xl text-neutral-text-secondary max-w-3xl mx-auto leading-relaxed">
+              Our transparent 6-step investment journey ensures clarity, compliance, and optimal results. No hidden processes—just professional wealth management done right.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Process Timeline */}
-      <section className="py-24">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      {/* --- PROCESS TIMELINE (The Gold Thread) --- */}
+      <section className="py-24 bg-neutral-bg-base relative">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="relative">
-            {/* Desktop Timeline Line */}
-            <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-brand-300"></div>
+            
+            {/* The Gold Thread (Vertical Line) */}
+            <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-accent-gold/30"></div>
 
             {steps.map((step, index) => {
               const IconComponent = step.icon
+              const isEven = index % 2 === 0
 
               return (
-                <div key={index} className="relative mb-16 lg:mb-24">
-                  {/* Step Content */}
-                  <div className="lg:w-1/2 lg:pr-16">
-                    <div className="bg-neutral-bg-paper p-8 rounded-lg shadow-card hover:shadow-hover transition-shadow duration-300">
-                      {/* Mobile Step Number */}
-                      <div className="lg:hidden flex items-center mb-6">
-                        <div className="w-16 h-16 bg-accent-gold rounded-full flex items-center justify-center mr-4">
-                          <span className="font-serif font-bold text-2xl text-neutral-text-primary">{step.number}</span>
-                        </div>
-                        <div>
-                          <h3 className="font-serif font-bold text-xl text-neutral-text-primary">{step.title}</h3>
-                          <p className="font-sans text-accent-bronze font-semibold">{step.subtitle}</p>
-                        </div>
+                <motion.div 
+                  key={index}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-100px" }}
+                  variants={fadeInUp}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: index * 0.1 }}
+                  className={`relative mb-24 flex items-center ${isEven ? 'justify-start' : 'justify-end'}`}
+                >
+                  
+                  {/* Step Content Card */}
+                  <div className={`lg:w-5/12 ${isEven ? 'lg:pr-12' : 'lg:pl-12 text-left'}`}>
+                    <div className="bg-neutral-bg-paper p-10 rounded-sm shadow-card hover:shadow-hover transition-all duration-500 border border-neutral-border/40 relative group">
+                      
+                      {/* Decorative Corner */}
+                      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-accent-gold/20 -mt-2 -mr-2 group-hover:border-accent-gold transition-colors duration-500"></div>
+
+                      <div className="flex items-center gap-4 mb-6">
+                         <div className="w-12 h-12 bg-neutral-bg-base border border-neutral-border rounded-full flex items-center justify-center text-accent-bronze">
+                            <IconComponent size={20} strokeWidth={1.5} />
+                         </div>
+                         <div>
+                            <span className="font-serif font-bold text-3xl text-brand-900 block leading-none">{step.number}</span>
+                            <span className="font-sans text-[10px] tracking-[0.2em] text-accent-gold uppercase font-bold">Step</span>
+                         </div>
                       </div>
 
-                      {/* Desktop Step Number */}
-                      <div className="hidden lg:flex items-center mb-6">
-                        <IconComponent className="w-8 h-8 text-accent-bronze mr-4" />
-                        <div>
-                          <h3 className="font-serif font-bold text-xl text-neutral-text-primary">{step.title}</h3>
-                          <p className="font-sans text-accent-bronze font-semibold">{step.subtitle}</p>
-                        </div>
-                      </div>
+                      <h3 className="font-serif font-bold text-2xl text-brand-900 mb-2">{step.title}</h3>
+                      <p className="font-sans text-xs font-bold text-accent-bronze mb-6 tracking-wide uppercase">{step.subtitle}</p>
 
-                      <p className="font-sans text-neutral-text-secondary mb-6 leading-relaxed">
+                      <p className="font-sans text-neutral-text-secondary mb-8 leading-relaxed text-sm">
                         {step.description}
                       </p>
 
-                      <div className="space-y-2">
+                      <div className="space-y-3 pt-6 border-t border-neutral-border/30">
                         {step.details.map((detail, detailIndex) => (
-                          <div key={detailIndex} className="flex items-center space-x-3">
-                            <div className="w-2 h-2 bg-accent-gold rounded-full flex-shrink-0"></div>
-                            <span className="font-sans text-sm text-neutral-text-secondary">{detail}</span>
+                          <div key={detailIndex} className="flex items-start space-x-3">
+                            <Check className="w-4 h-4 text-accent-gold flex-shrink-0 mt-0.5" />
+                            <span className="font-sans text-xs font-bold text-neutral-text-primary/70">{detail}</span>
                           </div>
                         ))}
                       </div>
                     </div>
                   </div>
 
-                  {/* Timeline Node */}
-                  <div className="hidden lg:block absolute left-1/2 top-8 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-16 h-16 bg-accent-gold rounded-full flex items-center justify-center border-4 border-white shadow-lg">
-                      <span className="font-serif font-bold text-xl text-neutral-text-primary">{step.number}</span>
-                    </div>
+                  {/* Center Node (The Gem) */}
+                  <div className="hidden lg:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                    <div className="w-4 h-4 bg-accent-gold rounded-full border-4 border-neutral-bg-base shadow-md"></div>
                   </div>
-                </div>
+
+                </motion.div>
               )
             })}
           </div>
         </div>
       </section>
 
-      {/* Process Benefits */}
-      <section className="py-24 bg-neutral-bg-paper">
+      {/* --- DASHBOARD PREVIEW (The "Report") --- */}
+      <section className="py-24 bg-neutral-bg-paper border-t border-neutral-border/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-serif font-bold text-3xl md:text-4xl text-neutral-text-primary mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0 }}
+            >
+              <h2 className="font-serif font-bold text-4xl text-brand-900 mb-8 leading-tight">
+                COMPLETE <br/> <span className="text-accent-gold">TRANSPARENCY</span>
+              </h2>
+              <p className="font-sans text-lg text-neutral-text-secondary mb-10 leading-relaxed border-l-2 border-brand-900 pl-6">
+                Monitor your investment performance in real-time through our secure client portal. Full visibility into portfolio composition, returns, and risk metrics.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {[
+                  'Real-time Performance',
+                  'Asset Breakdown',
+                  'Monthly Reports',
+                  'Risk Monitoring',
+                ].map((feature, index) => (
+                  <div key={index} className="flex items-center space-x-3 p-4 bg-neutral-bg-base rounded-sm border border-neutral-border/50">
+                    <div className="w-2 h-2 bg-accent-gold rounded-full flex-shrink-0"></div>
+                    <span className="font-sans font-bold text-xs tracking-widest text-brand-900 uppercase">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Dashboard Interface - Styled like a High-End Paper Report */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="relative"
+            >
+              <div className="bg-[#FDFBF7] p-8 rounded-sm shadow-card border border-neutral-border relative overflow-hidden">
+                {/* Header of Report */}
+                <div className="flex justify-between items-end mb-8 border-b-2 border-brand-900 pb-4">
+                  <div>
+                    <h4 className="font-serif font-bold text-2xl text-brand-900">PORTFOLIO REPORT</h4>
+                    <p className="font-sans text-[10px] tracking-[0.2em] text-neutral-text-muted uppercase">Client ID: 8829-ANOA</p>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-3xl font-serif font-bold text-accent-bronze">1.200.000.000 <span className="text-sm text-brand-900">IDR</span></div>
+                    <p className="font-sans text-[10px] tracking-[0.2em] text-neutral-text-muted uppercase">Total Asset Value</p>
+                  </div>
+                </div>
+                
+                {/* Stats Grid */}
+                <div className="grid grid-cols-3 gap-4 mb-8">
+                  {[
+                    { label: 'YTD Return', value: '+8.5%', color: 'text-accent-success' },
+                    { label: 'Risk Score', value: 'Low', color: 'text-brand-900' },
+                    { label: 'Dividends', value: '2.500.000', color: 'text-accent-gold' }
+                  ].map((stat, i) => (
+                    <div key={i} className="bg-neutral-bg-base p-4 border border-neutral-border/30 text-center">
+                      <div className="text-[10px] font-bold tracking-widest text-neutral-text-muted uppercase mb-2">{stat.label}</div>
+                      <div className={`text-xl font-serif font-bold ${stat.color}`}>{stat.value}</div>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* "Chart" Visualization */}
+                <div className="mb-8">
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="font-sans text-xs font-bold tracking-widest text-brand-900">ASSET ALLOCATION</span>
+                    <span className="font-serif italic text-neutral-text-muted text-sm">Conservative Strategy</span>
+                  </div>
+                  <div className="flex w-full h-4 rounded-full overflow-hidden">
+                    <div className="w-[65%] bg-brand-900"></div>
+                    <div className="w-[25%] bg-accent-gold"></div>
+                    <div className="w-[10%] bg-neutral-border"></div>
+                  </div>
+                  <div className="flex justify-between mt-3 text-[10px] font-sans text-neutral-text-muted uppercase tracking-widest">
+                    <span className="flex items-center gap-1"><span className="w-2 h-2 bg-brand-900 rounded-full"></span> 65% Bonds</span>
+                    <span className="flex items-center gap-1"><span className="w-2 h-2 bg-accent-gold rounded-full"></span> 25% Equity</span>
+                    <span className="flex items-center gap-1"><span className="w-2 h-2 bg-neutral-border rounded-full"></span> 10% Cash</span>
+                  </div>
+                </div>
+
+                <div className="text-center pt-4 border-t border-neutral-border/30">
+                  <span className="font-serif italic text-accent-bronze text-sm">Generated by Anoa Investama Private Client Systems</span>
+                </div>
+              </div>
+              
+              {/* Background accent */}
+              <div className="absolute -z-10 top-6 -right-6 w-full h-full bg-brand-900/5 rounded-sm"></div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- BENEFITS --- */}
+      <section className="py-24 bg-neutral-bg-base">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+           <div className="text-center mb-16">
+            <h2 className="font-serif font-bold text-3xl md:text-4xl text-brand-900 mb-6">
               WHY OUR PROCESS WORKS
             </h2>
-            <p className="font-sans text-xl text-neutral-text-secondary max-w-3xl mx-auto">
-              Every step is designed for transparency, compliance, and optimal client outcomes.
-            </p>
+            <div className="w-24 h-px bg-accent-gold mx-auto"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              {
-                title: 'TRANSPARENT',
-                description: 'Every step is clearly explained with full documentation and client visibility.'
-              },
-              {
-                title: 'COMPLIANT',
-                description: 'All procedures follow Indonesian financial regulations and industry best practices.'
-              },
-              {
-                title: 'EFFICIENT',
-                description: 'Streamlined process minimizes paperwork while maintaining thoroughness.'
-              },
-              {
-                title: 'CLIENT-CENTRIC',
-                description: 'Designed around client needs with regular communication and feedback loops.'
-              }
+              { title: 'TRANSPARENT', desc: 'Full documentation and visibility.' },
+              { title: 'COMPLIANT', desc: 'Adhering to strict ID regulations.' },
+              { title: 'EFFICIENT', desc: 'Streamlined, digital-first process.' },
+              { title: 'CLIENT-CENTRIC', desc: 'Designed around your legacy goals.' }
             ].map((benefit, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="font-serif font-bold text-xl text-accent-bronze">{index + 1}</span>
+              <motion.div 
+                key={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                variants={fadeInUp}
+                className="text-center group p-6 hover:bg-neutral-bg-paper transition-colors duration-500 rounded-sm"
+              >
+                <div className="w-12 h-12 bg-neutral-bg-paper border border-neutral-border rounded-full flex items-center justify-center mx-auto mb-6 group-hover:border-accent-gold transition-colors">
+                  <span className="font-serif font-bold text-lg text-accent-bronze">{index + 1}</span>
                 </div>
-                <h3 className="font-serif font-bold text-lg text-neutral-text-primary mb-3">{benefit.title}</h3>
-                <p className="font-sans text-sm text-neutral-text-secondary">{benefit.description}</p>
-              </div>
+                <h3 className="font-serif font-bold text-lg text-brand-900 mb-3 tracking-wide">{benefit.title}</h3>
+                <p className="font-sans text-xs text-neutral-text-secondary leading-relaxed uppercase tracking-widest">{benefit.desc}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Dashboard Preview */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="font-serif font-bold text-3xl md:text-4xl text-neutral-text-primary mb-6">
-                COMPLETE TRANSPARENCY
-              </h2>
-              <p className="font-sans text-lg text-neutral-text-secondary mb-8 leading-relaxed">
-                Monitor your investment performance in real-time through our secure dashboard. 
-                Full visibility into portfolio composition, returns, and risk metrics.
-              </p>
-              <div className="space-y-4">
-                {[
-                  'Real-time portfolio performance',
-                  'Detailed asset allocation breakdown',
-                  'Monthly and quarterly reports',
-                  'Risk assessment and monitoring',
-                  'Direct communication with your manager'
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-accent-gold rounded-full flex-shrink-0"></div>
-                    <span className="font-sans text-neutral-text-secondary">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="relative">
-              {/* CSS-based dashboard interface illustration */}
-              <div className="bg-neutral-bg-paper rounded-lg p-6 shadow-md border border-neutral-border">
-                <div className="mb-4">
-                  <h4 className="font-serif font-bold text-lg text-neutral-text-primary mb-2">INVESTMENT DASHBOARD</h4>
-                  <div className="w-full h-1 bg-accent-gold rounded"></div>
-                </div>
-                
-                {/* Portfolio overview section */}
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  <div className="bg-accent-gold/10 p-3 rounded border border-neutral-border">
-                    <div className="text-xs text-neutral-text-muted mb-1">Total Value</div>
-                    <div className="text-lg font-bold text-neutral-text-primary">1.2B IDR</div>
-                  </div>
-                  <div className="bg-accent-success/10 p-3 rounded border border-neutral-border">
-                    <div className="text-xs text-neutral-text-muted mb-1">YTD Return</div>
-                    <div className="text-lg font-bold text-accent-success">+8.5%</div>
-                  </div>
-                  <div className="bg-accent-bronze/10 p-3 rounded border border-neutral-border">
-                    <div className="text-xs text-neutral-text-muted mb-1">Risk Score</div>
-                    <div className="text-lg font-bold text-accent-bronze">Low</div>
-                  </div>
-                </div>
-                
-                {/* Portfolio allocation chart */}
-                <div className="mb-6">
-                  <div className="text-sm font-sans text-neutral-text-muted mb-3">Portfolio Allocation</div>
-                  <div className="space-y-2">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-4 h-4 bg-accent-gold rounded"></div>
-                      <div className="flex-1 bg-neutral-bg-base h-3 rounded">
-                        <div className="h-full bg-accent-gold rounded" style={{ width: '65%' }}></div>
-                      </div>
-                      <span className="text-xs text-neutral-text-muted">65%</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-4 h-4 bg-accent-success rounded"></div>
-                      <div className="flex-1 bg-neutral-bg-base h-3 rounded">
-                        <div className="h-full bg-accent-success rounded" style={{ width: '25%' }}></div>
-                      </div>
-                      <span className="text-xs text-neutral-text-muted">25%</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-4 h-4 bg-neutral-text-muted rounded"></div>
-                      <div className="flex-1 bg-neutral-bg-base h-3 rounded">
-                        <div className="h-full bg-neutral-text-muted rounded" style={{ width: '10%' }}></div>
-                      </div>
-                      <span className="text-xs text-neutral-text-muted">10%</span>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Recent transactions */}
-                <div>
-                  <div className="text-sm font-sans text-neutral-text-muted mb-3">Recent Activity</div>
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center p-2 bg-neutral-bg-base rounded">
-                      <span className="text-xs text-neutral-text-secondary">Dividend Received</span>
-                      <span className="text-xs text-accent-success font-semibold">+2.5M IDR</span>
-                    </div>
-                    <div className="flex justify-between items-center p-2 bg-neutral-bg-base rounded">
-                      <span className="text-xs text-neutral-text-secondary">Portfolio Rebalance</span>
-                      <span className="text-xs text-neutral-text-muted">-0.3M IDR</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mt-6 text-center">
-                  <p className="text-accent-bronze font-sans text-xs">REAL-TIME PORTFOLIO MANAGEMENT</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 bg-neutral-text-primary">
+      {/* --- CTA --- */}
+      <section className="py-24 bg-brand-900 text-neutral-bg-base">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="font-serif font-bold text-3xl md:text-4xl text-neutral-bg-base mb-6">
-            READY TO START YOUR INVESTMENT JOURNEY?
+          <h2 className="font-serif font-bold text-4xl mb-8">
+            READY TO BEGIN?
           </h2>
-          <p className="font-sans text-xl text-neutral-bg-base/90 mb-8 leading-relaxed">
-            Take the first step towards professional wealth management. Our team is ready to guide you through every stage of the Home Investment Process.
+          <p className="font-sans text-lg text-white/70 mb-10 leading-relaxed max-w-2xl mx-auto">
+            Our team is ready to guide you through every stage of the Home Investment Process. Secure your financial future today.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-accent-gold text-neutral-text-primary font-sans font-bold text-lg px-8 py-4 rounded-sm hover:bg-accent-gold-hover transition-colors duration-200 shadow-md">
+            <button className="bg-accent-gold text-brand-900 font-sans font-bold text-sm tracking-widest px-10 py-4 rounded-sm hover:bg-white transition-colors duration-300">
               SCHEDULE CONSULTATION
             </button>
-            <button className="border-2 border-neutral-bg-base text-neutral-bg-base font-sans font-bold text-lg px-8 py-4 rounded-sm hover:bg-neutral-bg-base hover:text-neutral-text-primary transition-colors duration-200">
-              DOWNLOAD PROCESS GUIDE
+            <button className="border border-neutral-bg-base text-neutral-bg-base font-sans font-bold text-sm tracking-widest px-10 py-4 rounded-sm hover:bg-neutral-bg-base hover:text-brand-900 transition-colors duration-300">
+              DOWNLOAD GUIDE
             </button>
           </div>
         </div>

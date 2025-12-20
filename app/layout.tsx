@@ -1,15 +1,11 @@
-import type { Metadata } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
-import Navigation from '../components/Navigation'
-import Footer from '../components/Footer'
-
-const playfair = Playfair_Display({ subsets: ['latin'] })
-const inter = Inter({ subsets: ['latin'] })
+import type { Metadata } from 'next'
+import Navigation from 'components/Navigation'
+import Footer from 'components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Anoa Investama - Value Investing for Indonesian Families',
-  description: 'Professional wealth management services by Cambridge and LSE alumni. Conservative value investing for Indonesian families with 6% and 10% annual return plans.',
+  title: 'Anoa Investama | Luxury Asset Management',
+  description: 'Value investing strategies for Indonesian families.',
 }
 
 export default function RootLayout({
@@ -19,15 +15,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className={`${inter.className} min-h-screen bg-neutral-bg-base`}>
+      {/* We apply the base background and text color here to ensure 
+        no white flashes occur during page loads.
+      */}
+      <body className="bg-neutral-bg-base text-neutral-text-primary antialiased min-h-screen flex flex-col">
+        
+        {/* Navigation is bound here */}
         <Navigation />
-        <main>{children}</main>
+        
+        <main className="flex-grow">
+          {children}
+        </main>
+        
+        {/* Footer is bound here */}
         <Footer />
+        
       </body>
     </html>
   )

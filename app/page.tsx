@@ -1,238 +1,280 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, Shield, TrendingUp, Users, Award } from 'lucide-react'
 
+// Luxury Animation Variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 60 },
+  visible: { opacity: 1, y: 0 }
+}
+
 export default function Home() {
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-neutral-bg-base">
-        {/* Clean corporate background */}
-        <div className="absolute inset-0 bg-neutral-bg-base"></div>
-        
+    <div className="overflow-hidden">
+      
+      {/* --- HERO SECTION --- */}
+      <section className="relative min-h-[90vh] flex items-center bg-neutral-bg-base">
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-32">
           <div className="max-w-4xl">
-            <h1 className="font-serif font-bold text-4xl md:text-6xl lg:text-7xl text-neutral-text-primary mb-8 leading-tight">
-              VALUE INVESTING FOR
-              <span className="block text-accent-gold">INDONESIAN FAMILIES</span>
-            </h1>
-            <p className="font-sans text-xl md:text-2xl text-neutral-text-secondary mb-12 leading-relaxed max-w-2xl">
+            
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0 }}
+            >
+              <span className="inline-block py-1 px-3 border border-accent-bronze/30 rounded-full text-accent-bronze font-sans text-xs font-bold tracking-widest mb-6">
+                EST. 2025
+              </span>
+              <h1 className="font-serif font-bold text-5xl md:text-7xl lg:text-8xl text-neutral-text-primary mb-8 leading-[1.1]">
+                VALUE INVESTING <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-gold to-accent-bronze">
+                  FOR FAMILIES.
+                </span>
+              </h1>
+            </motion.div>
+
+            <motion.p 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+              className="font-sans text-xl text-neutral-text-secondary mb-12 leading-relaxed max-w-2xl border-l-2 border-accent-gold pl-6"
+            >
               Professional wealth management by Cambridge and LSE alumni. 
-              Conservative strategies, transparent processes, and exceptional returns.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6">
-              <button className="bg-accent-gold text-neutral-bg-base font-sans font-bold text-lg px-8 py-4 rounded-sm hover:bg-accent-gold-hover transition-colors duration-200 flex items-center justify-center shadow-md">
-                START CONSULTATION
-                <ArrowRight className="ml-2" size={20} />
-              </button>
+              Conservative strategies, transparent processes, and exceptional returns for the long term.
+            </motion.p>
+
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+              className="flex flex-col sm:flex-row gap-6"
+            >
+              <Link href="/contact">
+                <button className="bg-accent-gold text-neutral-bg-base font-sans font-bold text-sm tracking-widest px-10 py-5 rounded-sm hover:bg-accent-gold-hover hover:shadow-hover transition-all duration-300 flex items-center group">
+                  START CONSULTATION
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+                </button>
+              </Link>
               <Link 
                 href="/plans"
-                className="border-2 border-neutral-text-primary text-neutral-text-primary font-sans font-bold text-lg px-8 py-4 rounded-sm hover:bg-neutral-text-primary hover:text-neutral-bg-base transition-colors duration-200 flex items-center justify-center"
+                className="border border-neutral-text-primary text-neutral-text-primary font-sans font-bold text-sm tracking-widest px-10 py-5 rounded-sm hover:bg-neutral-text-primary hover:text-neutral-bg-base transition-all duration-300 flex items-center justify-center"
               >
                 VIEW PLANS
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Introduction Section */}
-      <section className="py-24 bg-neutral-bg-paper">
+      {/* --- INTRODUCTION SECTION --- */}
+      <section className="py-32 bg-neutral-bg-paper">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="font-serif font-bold text-3xl md:text-4xl text-neutral-text-primary mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+            >
+              <h2 className="font-serif font-bold text-4xl text-neutral-text-primary mb-10">
                 WHO WE ARE
               </h2>
-              <div className="space-y-6 text-lg text-neutral-text-secondary leading-relaxed">
+              <div className="space-y-8 text-lg text-neutral-text-secondary leading-relaxed font-sans">
                 <p>
-                  Independent wealth managers with prestigious academic credentials from Cambridge University 
-                  and the London School of Economics. We specialize in conservative value investing strategies 
-                  tailored for Indonesian families.
+                  Independent wealth managers with prestigious academic credentials from <span className="font-bold text-neutral-text-primary">Cambridge University</span> and the <span className="font-bold text-neutral-text-primary">London School of Economics</span>. We specialize in conservative value investing strategies tailored for Indonesian families.
                 </p>
                 <p>
-                  Our approach emphasizes long-term wealth preservation over short-term gains, focusing on 
-                  fundamental analysis and patient capital deployment in the Indonesian market with global diversification.
+                  Our approach emphasizes long-term wealth preservation over short-term gains, focusing on fundamental analysis and patient capital deployment.
                 </p>
-                <p className="text-accent-bronze font-semibold text-xl italic">
-                  "Value over hype. Principles over profit."
-                </p>
+                <div className="pt-4">
+                  <p className="text-accent-bronze font-serif text-2xl italic border-l-4 border-accent-gold pl-6 py-2">
+                    "Value over hype. Principles over profit."
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="relative">
-              {/* Clean corporate illustration */}
-              <div className="relative bg-neutral-bg-base border border-neutral-border rounded-lg p-12 shadow-md">
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="relative"
+            >
+              <div className="relative bg-neutral-bg-base border border-neutral-border p-16 shadow-card hover:shadow-hover transition-shadow duration-500">
                 <div className="text-center">
-                  {/* Professional logo display */}
-                  <div className="w-32 h-32 mx-auto bg-accent-gold rounded-full flex items-center justify-center shadow-md mb-8">
+                  <div className="w-40 h-40 mx-auto bg-neutral-bg-paper rounded-full flex items-center justify-center shadow-inner mb-10 p-8">
                     <img 
                       src="/logo.png" 
                       alt="Anoa Investama" 
-                      className="w-24 h-24 object-contain"
+                      className="w-full h-full object-contain mix-blend-multiply opacity-80"
                     />
                   </div>
-                  <h3 className="font-serif font-bold text-xl text-neutral-text-primary mb-4">PROFESSIONAL EXCELLENCE</h3>
-                  <div className="w-16 h-1 bg-accent-gold mx-auto"></div>
-                  <p className="text-accent-bronze font-sans text-sm mt-4 tracking-wider">LUXURY WEALTH MANAGEMENT</p>
+                  <h3 className="font-serif font-bold text-2xl text-neutral-text-primary mb-4 tracking-wide">PROFESSIONAL EXCELLENCE</h3>
+                  <div className="w-24 h-px bg-accent-gold mx-auto my-6"></div>
+                  <p className="text-accent-bronze font-sans text-xs font-bold tracking-[0.3em] uppercase">Luxury Wealth Management</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
+
           </div>
         </div>
       </section>
 
-      {/* Investment Plans Teaser */}
-      <section className="py-24 bg-neutral-bg-base">
+      {/* --- PLANS SECTION --- */}
+      <section className="py-32 bg-neutral-bg-base">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-serif font-bold text-3xl md:text-4xl text-neutral-text-primary mb-6">
+          <div className="text-center mb-20">
+            <h2 className="font-serif font-bold text-4xl text-neutral-text-primary mb-6">
               INVESTMENT PLANS
             </h2>
-            <p className="font-sans text-xl text-neutral-text-secondary max-w-3xl mx-auto">
-              Choose between our conservative 6% annual plan or growth-oriented 10% annual plan, 
-              both designed with disciplined risk management.
+            <p className="font-sans text-lg text-neutral-text-secondary max-w-2xl mx-auto">
+              Choose between our conservative or growth-oriented strategies, designed with disciplined risk management.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* 6% Plan */}
-            <div className="bg-neutral-bg-paper p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-neutral-border">
-              <div className="text-center mb-6">
-                <div className="font-serif font-bold text-6xl text-accent-bronze mb-2">6%</div>
-                <div className="font-sans text-lg text-neutral-text-secondary font-semibold">ANNUAL TARGET</div>
+            <motion.div 
+              whileHover={{ y: -10 }}
+              className="bg-neutral-bg-paper p-12 rounded-sm shadow-card border border-neutral-border/50"
+            >
+              <div className="text-center mb-10">
+                <div className="font-serif font-bold text-7xl text-accent-bronze mb-4">6%</div>
+                <div className="font-sans text-xs font-bold tracking-widest text-neutral-text-muted">ANNUAL TARGET</div>
               </div>
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center justify-between">
+              <div className="space-y-6 mb-12">
+                <div className="flex items-center justify-between border-b border-neutral-border/50 pb-4">
                   <span className="font-sans text-neutral-text-muted">Asset Allocation</span>
                   <span className="font-sans font-bold text-neutral-text-primary">&gt;80% Safe Assets</span>
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between border-b border-neutral-border/50 pb-4">
                   <span className="font-sans text-neutral-text-muted">Minimum Entry</span>
-                  <span className="font-sans font-bold text-neutral-text-primary">1.000.000 IDR</span>
+                  <span className="font-sans font-bold text-neutral-text-primary">100.000.000</span>
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between border-b border-neutral-border/50 pb-4">
                   <span className="font-sans text-neutral-text-muted">Risk Profile</span>
                   <span className="font-sans font-bold text-accent-success">Conservative</span>
                 </div>
               </div>
-              <Link 
-                href="/plans"
-                className="block text-center bg-accent-gold text-neutral-bg-base font-sans font-bold py-3 px-6 rounded-sm hover:bg-accent-gold-hover transition-colors duration-200"
-              >
-                LEARN MORE
+              <Link href="/plans" className="block">
+                <button className="w-full border border-accent-bronze text-accent-bronze font-sans font-bold py-4 px-6 hover:bg-accent-bronze hover:text-neutral-bg-base transition-all duration-300 tracking-widest text-sm">
+                  VIEW DETAILS
+                </button>
               </Link>
-            </div>
+            </motion.div>
 
             {/* 10% Plan */}
-            <div className="bg-neutral-bg-paper p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border-2 border-accent-gold relative">
-              {/* Featured badge */}
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span className="bg-accent-gold text-neutral-bg-base px-4 py-1 rounded-full text-sm font-bold">POPULAR</span>
+            <motion.div 
+              whileHover={{ y: -10 }}
+              className="bg-neutral-text-primary p-12 rounded-sm shadow-hover relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 bg-accent-gold text-neutral-bg-base text-[10px] font-bold tracking-widest px-4 py-2">
+                RECOMMENDED
               </div>
-              <div className="text-center mb-6 mt-4">
-                <div className="font-serif font-bold text-6xl text-accent-bronze mb-2">10%</div>
-                <div className="font-sans text-lg text-neutral-text-secondary font-semibold">ANNUAL TARGET</div>
+              <div className="text-center mb-10">
+                <div className="font-serif font-bold text-7xl text-accent-gold mb-4">10%</div>
+                <div className="font-sans text-xs font-bold tracking-widest text-neutral-bg-base/50">ANNUAL TARGET</div>
               </div>
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center justify-between">
-                  <span className="font-sans text-neutral-text-muted">Asset Allocation</span>
-                  <span className="font-sans font-bold text-neutral-text-primary">&gt;60% Growth Assets</span>
+              <div className="space-y-6 mb-12">
+                <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                  <span className="font-sans text-neutral-bg-base/60">Asset Allocation</span>
+                  <span className="font-sans font-bold text-neutral-bg-base">&gt;60% Growth</span>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="font-sans text-neutral-text-muted">Minimum Entry</span>
-                  <span className="font-sans font-bold text-neutral-text-primary">500jt IDR</span>
+                <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                  <span className="font-sans text-neutral-bg-base/60">Minimum Entry</span>
+                  <span className="font-sans font-bold text-neutral-bg-base">500.000.000</span>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="font-sans text-neutral-text-muted">Risk Profile</span>
-                  <span className="font-sans font-bold text-accent-bronze">Growth</span>
+                <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                  <span className="font-sans text-neutral-bg-base/60">Risk Profile</span>
+                  <span className="font-sans font-bold text-accent-gold">Growth</span>
                 </div>
               </div>
-              <Link 
-                href="/plans"
-                className="block text-center bg-accent-gold text-neutral-bg-base font-sans font-bold py-3 px-6 rounded-sm hover:bg-accent-gold-hover transition-colors duration-200"
-              >
-                LEARN MORE
+              <Link href="/plans" className="block">
+                <button className="w-full bg-accent-gold text-neutral-text-primary font-sans font-bold py-4 px-6 hover:bg-white transition-colors duration-300 tracking-widest text-sm">
+                  VIEW DETAILS
+                </button>
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Home Investment Process Teaser */}
-      <section className="py-24 bg-neutral-bg-paper">
+      {/* --- PROCESS TEASER --- */}
+      <section className="py-32 bg-neutral-bg-paper">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-serif font-bold text-3xl md:text-4xl text-neutral-text-primary mb-6">
-              THE HOME INVESTMENT PROCESS
+          <div className="text-center mb-20">
+            <h2 className="font-serif font-bold text-4xl text-neutral-text-primary mb-6">
+              THE INVESTMENT JOURNEY
             </h2>
-            <p className="font-sans text-xl text-neutral-text-secondary max-w-3xl mx-auto">
-              Our transparent 6-step investment journey ensures clarity, compliance, and optimal results 
-              for every client relationship.
+            <p className="font-sans text-xl text-neutral-text-secondary max-w-2xl mx-auto">
+              Transparent, compliant, and secure.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {[
-              { number: '01', title: 'BUDGET DETERMINATION', desc: 'Define investment goals and time horizon' },
-              { number: '02', title: 'RDN OPENING', desc: 'Ajaib partnership with KYC referral' },
-              { number: '03', title: 'LEGAL FRAMEWORK', desc: 'SPPD agreement with proper stamp duty' },
-              { number: '04', title: 'ACCESS PROVISION', desc: 'Secure login credentials for account management' },
-              { number: '05', title: 'MONITORING', desc: 'Regular transparency and performance tracking' },
-              { number: '06', title: 'MANAGEMENT', desc: 'Ongoing portfolio optimization and reporting' }
+              { number: '01', title: 'BUDGET', desc: 'Define investment goals and timeline.' },
+              { number: '02', title: 'RDN OPENING', desc: 'Ajaib partnership with KYC referral.' },
+              { number: '03', title: 'LEGAL', desc: 'SPPD agreement on stamp duty.' },
+              { number: '04', title: 'ACCESS', desc: 'Secure handover of credentials.' },
+              { number: '05', title: 'MONITORING', desc: 'Regular transparency tracking.' },
+              { number: '06', title: 'MANAGEMENT', desc: 'Ongoing portfolio optimization.' }
             ].map((step, index) => (
-              <div key={index} className="text-center group hover:transform hover:-translate-y-2 transition-transform duration-300">
-                <div className="w-20 h-20 bg-accent-gold rounded-full flex items-center justify-center mx-auto mb-6 shadow-md group-hover:shadow-lg transition-shadow duration-300">
-                  <span className="font-serif font-bold text-xl text-neutral-bg-base">{step.number}</span>
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="text-center group p-8 border border-transparent hover:border-neutral-border hover:bg-neutral-bg-base transition-all duration-500"
+              >
+                <div className="font-serif text-5xl text-neutral-text-primary/10 mb-6 group-hover:text-accent-gold transition-colors duration-500">
+                  {step.number}
                 </div>
                 <h3 className="font-serif font-bold text-lg text-neutral-text-primary mb-3">{step.title}</h3>
                 <p className="font-sans text-sm text-neutral-text-muted leading-relaxed">{step.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
 
-          <div className="text-center mt-16">
+          <div className="text-center mt-20">
             <Link 
               href="/process"
-              className="inline-flex items-center bg-accent-bronze text-neutral-bg-base font-sans font-bold py-4 px-8 rounded-sm hover:bg-accent-gold hover:text-neutral-bg-base transition-all duration-200 shadow-md"
+              className="inline-flex items-center text-accent-bronze font-sans font-bold text-sm tracking-widest hover:text-accent-gold transition-colors duration-300 border-b border-accent-bronze pb-1 hover:border-accent-gold"
             >
-              VIEW FULL PROCESS
-              <ArrowRight className="ml-2" size={20} />
+              VIEW FULL PROCESS DETAILS
+              <ArrowRight className="ml-2" size={16} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Trust Signals */}
-      <section className="py-24 bg-neutral-bg-base">
+      {/* --- TRUST SIGNALS --- */}
+      <section className="py-24 bg-neutral-text-primary text-neutral-bg-base">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center group hover:transform hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-16 h-16 bg-accent-gold rounded-full flex items-center justify-center mx-auto mb-6 shadow-md group-hover:shadow-lg transition-shadow duration-300">
-                <Shield className="w-8 h-8 text-neutral-bg-base" />
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
+            {[
+              { icon: Shield, title: "REGULATED", sub: "Fully Compliant" },
+              { icon: Award, title: "TOP TIER", sub: "Cambridge & LSE" },
+              { icon: TrendingUp, title: "PROVEN", sub: "Value Investing" },
+              { icon: Users, title: "FOCUSED", sub: "Family Office" },
+            ].map((item, i) => (
+              <div key={i} className="pt-8 md:pt-0 px-4">
+                <item.icon className="w-10 h-10 mx-auto text-accent-gold mb-6" strokeWidth={1} />
+                <h3 className="font-serif font-bold text-lg mb-2 tracking-wide">{item.title}</h3>
+                <p className="font-sans text-xs text-white/50 tracking-widest uppercase">{item.sub}</p>
               </div>
-              <h3 className="font-serif font-bold text-lg text-neutral-text-primary mb-3">REGULATED</h3>
-              <p className="font-sans text-sm text-neutral-text-muted leading-relaxed">Fully compliant with Indonesian financial regulations</p>
-            </div>
-            <div className="text-center group hover:transform hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-16 h-16 bg-accent-gold rounded-full flex items-center justify-center mx-auto mb-6 shadow-md group-hover:shadow-lg transition-shadow duration-300">
-                <Award className="w-8 h-8 text-neutral-bg-base" />
-              </div>
-              <h3 className="font-serif font-bold text-lg text-neutral-text-primary mb-3">TOP-TIER EDUCATION</h3>
-              <p className="font-sans text-sm text-neutral-text-muted leading-relaxed">Cambridge and LSE alumni with proven expertise</p>
-            </div>
-            <div className="text-center group hover:transform hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-16 h-16 bg-accent-gold rounded-full flex items-center justify-center mx-auto mb-6 shadow-md group-hover:shadow-lg transition-shadow duration-300">
-                <TrendingUp className="w-8 h-8 text-neutral-bg-base" />
-              </div>
-              <h3 className="font-serif font-bold text-lg text-neutral-text-primary mb-3">PROVEN TRACK RECORD</h3>
-              <p className="font-sans text-sm text-neutral-text-muted leading-relaxed">Consistent value investing performance</p>
-            </div>
-            <div className="text-center group hover:transform hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-16 h-16 bg-accent-gold rounded-full flex items-center justify-center mx-auto mb-6 shadow-md group-hover:shadow-lg transition-shadow duration-300">
-                <Users className="w-8 h-8 text-neutral-bg-base" />
-              </div>
-              <h3 className="font-serif font-bold text-lg text-neutral-text-primary mb-3">FAMILY FOCUSED</h3>
-              <p className="font-sans text-sm text-neutral-text-muted leading-relaxed">Wealth preservation for Indonesian families</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>

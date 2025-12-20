@@ -1,48 +1,74 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import { CheckCircle, TrendingUp, Shield, DollarSign } from 'lucide-react'
+
+// Animation Variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 }
+}
 
 export default function Plans() {
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="py-24 bg-neutral-bg-base">
+    <div className="overflow-hidden">
+      
+      {/* --- HERO SECTION --- */}
+      <section className="py-32 bg-neutral-bg-base border-b border-neutral-border/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="font-serif font-bold text-4xl md:text-5xl text-brand-900 mb-6">
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}
+            className="text-center mb-16"
+          >
+            <span className="inline-block py-1 px-3 border border-accent-bronze/30 rounded-full text-accent-bronze font-sans text-xs font-bold tracking-widest mb-6">
+              INVESTMENT TIERS
+            </span>
+            <h1 className="font-serif font-bold text-5xl md:text-6xl text-brand-900 mb-6">
               VALUE OVER HYPE
             </h1>
-            <p className="font-sans text-xl text-neutral-text-secondary max-w-4xl mx-auto leading-relaxed">
-              Our conservative approach prioritizes wealth preservation and consistent returns over 
-              speculative trading. Choose the plan that aligns with your risk tolerance and investment goals.
+            <p className="font-sans text-xl text-neutral-text-secondary max-w-3xl mx-auto leading-relaxed">
+              Our conservative approach prioritizes wealth preservation and consistent returns over speculative trading. Choose the plan that aligns with your legacy goals.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Investment Plans */}
-      <section className="py-24">
+      {/* --- INVESTMENT PLANS --- */}
+      <section className="py-24 bg-neutral-bg-base">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            
             {/* 6% Conservative Plan */}
-            <div className="bg-neutral-bg-paper p-12 rounded-lg shadow-card relative">
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
-                <div className="bg-accent-gold text-brand-900 font-sans font-bold px-6 py-2 rounded-sm">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+              whileHover={{ y: -10 }}
+              className="bg-neutral-bg-paper p-12 rounded-sm shadow-card border border-neutral-border relative"
+            >
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div className="bg-neutral-text-primary text-neutral-bg-base font-sans font-bold text-xs tracking-widest px-6 py-2 shadow-lg">
                   CONSERVATIVE
                 </div>
               </div>
               
-              <div className="text-center mb-8 pt-4">
-                <div className="font-serif font-bold text-7xl text-brand-500 mb-2">6%</div>
-                <div className="font-sans text-2xl text-brand-700 font-semibold">ANNUAL RETURN TARGET</div>
+              <div className="text-center mb-10 pt-4">
+                <div className="font-serif font-bold text-7xl text-accent-bronze mb-2">6%</div>
+                <div className="font-sans text-xs font-bold tracking-[0.2em] text-neutral-text-muted">ANNUAL RETURN TARGET</div>
               </div>
 
-              <div className="space-y-6 mb-8">
+              <div className="space-y-8 mb-10">
                 <div className="flex items-start space-x-4">
                   <Shield className="w-6 h-6 text-accent-success flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-sans font-bold text-brand-900 mb-2">Conservative Asset Allocation</h4>
-                    <p className="font-sans text-neutral-text-secondary">
-                      Over 80% allocation in safe, income-generating assets including government bonds, 
-                      blue-chip stocks, and established REITs.
+                    <h4 className="font-sans font-bold text-brand-900 mb-1">Asset Allocation</h4>
+                    <p className="font-sans text-sm text-neutral-text-secondary leading-relaxed">
+                      Over 80% allocation in safe, income-generating assets including government bonds and blue-chip stocks.
                     </p>
                   </div>
                 </div>
@@ -50,10 +76,9 @@ export default function Plans() {
                 <div className="flex items-start space-x-4">
                   <CheckCircle className="w-6 h-6 text-accent-success flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-sans font-bold text-brand-900 mb-2">Lower Volatility</h4>
-                    <p className="font-sans text-neutral-text-secondary">
-                      Designed for capital preservation with steady, predictable returns suitable for 
-                      conservative investors and retirement planning.
+                    <h4 className="font-sans font-bold text-brand-900 mb-1">Lower Volatility</h4>
+                    <p className="font-sans text-sm text-neutral-text-secondary leading-relaxed">
+                      Designed for capital preservation with steady, predictable returns suitable for retirement.
                     </p>
                   </div>
                 </div>
@@ -61,189 +86,164 @@ export default function Plans() {
                 <div className="flex items-start space-x-4">
                   <DollarSign className="w-6 h-6 text-accent-success flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-sans font-bold text-brand-900 mb-2">Minimum Investment</h4>
+                    <h4 className="font-sans font-bold text-brand-900 mb-1">Minimum Investment</h4>
                     <p className="font-sans text-neutral-text-secondary">
-                      <span className="text-2xl font-bold text-brand-500">1.000.000 IDR</span> minimum entry, 
-                      with flexible contribution options.
+                      <span className="text-xl font-bold text-brand-900">100.000.000</span> minimum entry.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="border-t border-neutral-border pt-8">
-                <h4 className="font-serif font-bold text-lg text-brand-900 mb-4">IDEAL FOR:</h4>
-                <ul className="space-y-2">
-                  <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-4 h-4 text-accent-success" />
-                    <span className="font-sans text-neutral-text-secondary">Risk-averse investors</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-4 h-4 text-accent-success" />
-                    <span className="font-sans text-neutral-text-secondary">Retirement planning</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-4 h-4 text-accent-success" />
-                    <span className="font-sans text-neutral-text-secondary">Capital preservation focus</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-4 h-4 text-accent-success" />
-                    <span className="font-sans text-neutral-text-secondary">Income generation priority</span>
-                  </li>
-                </ul>
+              <div className="border-t border-neutral-border/50 pt-8 bg-neutral-bg-base/50 -mx-12 -mb-12 p-8 text-center">
+                <button className="text-accent-bronze font-sans font-bold text-xs tracking-widest border-b border-accent-bronze pb-1 hover:text-brand-900 hover:border-brand-900 transition-all">
+                  VIEW FULL TERM SHEET
+                </button>
               </div>
-            </div>
+            </motion.div>
 
             {/* 10% Growth Plan */}
-            <div className="bg-neutral-bg-paper p-12 rounded-lg shadow-card relative border-2 border-brand-300">
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
-                <div className="bg-accent-gold text-brand-900 font-sans font-bold px-6 py-2 rounded-sm">
-                  GROWTH
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+              whileHover={{ y: -10 }}
+              className="bg-brand-900 p-12 rounded-sm shadow-hover relative border border-brand-900 text-neutral-bg-base"
+            >
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div className="bg-accent-gold text-brand-900 font-sans font-bold text-xs tracking-widest px-6 py-2 shadow-lg">
+                  RECOMMENDED
                 </div>
               </div>
               
-              <div className="text-center mb-8 pt-4">
-                <div className="font-serif font-bold text-7xl text-brand-500 mb-2">10%</div>
-                <div className="font-sans text-2xl text-brand-700 font-semibold">ANNUAL RETURN TARGET</div>
+              <div className="text-center mb-10 pt-4">
+                <div className="font-serif font-bold text-7xl text-accent-gold mb-2">10%</div>
+                <div className="font-sans text-xs font-bold tracking-[0.2em] text-neutral-bg-base/60">ANNUAL RETURN TARGET</div>
               </div>
 
-              <div className="space-y-6 mb-8">
+              <div className="space-y-8 mb-10">
                 <div className="flex items-start space-x-4">
-                  <TrendingUp className="w-6 h-6 text-brand-500 flex-shrink-0 mt-1" />
+                  <TrendingUp className="w-6 h-6 text-accent-gold flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-sans font-bold text-brand-900 mb-2">Balanced Growth Strategy</h4>
-                    <p className="font-sans text-neutral-text-secondary">
-                      Over 60% allocation in growth-oriented assets including quality growth stocks, 
-                      sector ETFs, and international exposure.
+                    <h4 className="font-sans font-bold text-white mb-1">Growth Strategy</h4>
+                    <p className="font-sans text-sm text-white/70 leading-relaxed">
+                      Over 60% allocation in quality growth stocks, sector ETFs, and international exposure.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <TrendingUp className="w-6 h-6 text-brand-500 flex-shrink-0 mt-1" />
+                  <TrendingUp className="w-6 h-6 text-accent-gold flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-sans font-bold text-brand-900 mb-2">Higher Return Potential</h4>
-                    <p className="font-sans text-neutral-text-secondary">
-                      Designed for investors seeking wealth accumulation with moderate risk tolerance 
-                      and longer investment horizons.
+                    <h4 className="font-sans font-bold text-white mb-1">Higher Potential</h4>
+                    <p className="font-sans text-sm text-white/70 leading-relaxed">
+                      Designed for wealth accumulation with moderate risk and longer investment horizons.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <DollarSign className="w-6 h-6 text-brand-500 flex-shrink-0 mt-1" />
+                  <DollarSign className="w-6 h-6 text-accent-gold flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-sans font-bold text-brand-900 mb-2">Minimum Investment</h4>
-                    <p className="font-sans text-neutral-text-secondary">
-                      <span className="text-2xl font-bold text-brand-500">500jt IDR</span> minimum entry, 
-                      reflecting the higher commitment level.
+                    <h4 className="font-sans font-bold text-white mb-1">Minimum Investment</h4>
+                    <p className="font-sans text-white/70">
+                      <span className="text-xl font-bold text-white">500.000.000</span> minimum entry.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="border-t border-neutral-border pt-8">
-                <h4 className="font-serif font-bold text-lg text-brand-900 mb-4">IDEAL FOR:</h4>
-                <ul className="space-y-2">
-                  <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-4 h-4 text-brand-500" />
-                    <span className="font-sans text-neutral-text-secondary">Growth-focused investors</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-4 h-4 text-brand-500" />
-                    <span className="font-sans text-neutral-text-secondary">Wealth accumulation goals</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-4 h-4 text-brand-500" />
-                    <span className="font-sans text-neutral-text-secondary">Moderate risk tolerance</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-4 h-4 text-brand-500" />
-                    <span className="font-sans text-neutral-text-secondary">Long-term horizon (5+ years)</span>
-                  </li>
-                </ul>
+              <div className="border-t border-white/10 pt-8 bg-white/5 -mx-12 -mb-12 p-8 text-center">
+                <button className="bg-accent-gold text-brand-900 font-sans font-bold text-xs tracking-widest px-8 py-3 rounded-sm hover:bg-white transition-colors">
+                  START APPLICATION
+                </button>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Comparison Table */}
+      {/* --- COMPARISON TABLE --- */}
       <section className="py-24 bg-neutral-bg-paper">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <h2 className="font-serif font-bold text-3xl md:text-4xl text-brand-900 text-center mb-16">
-            PLAN COMPARISON
-          </h2>
-          
-          <div className="bg-neutral-bg-base rounded-lg overflow-hidden shadow-card">
-            <div className="grid grid-cols-1 md:grid-cols-3">
-              {/* Headers */}
-              <div className="bg-brand-900 text-white p-6">
-                <h3 className="font-serif font-bold text-lg">FEATURES</h3>
-              </div>
-              <div className="bg-brand-500 text-white p-6 text-center">
-                <h3 className="font-serif font-bold text-xl">6% PLAN</h3>
-              </div>
-              <div className="bg-brand-700 text-white p-6 text-center">
-                <h3 className="font-serif font-bold text-xl">10% PLAN</h3>
-              </div>
-
-              {/* Rows */}
-              {[
-                { feature: 'Annual Return Target', plan6: '6%', plan10: '10%' },
-                { feature: 'Minimum Investment', plan6: '1.000.000 IDR', plan10: '500jt IDR' },
-                { feature: 'Conservative Assets', plan6: '>80%', plan10: '>40%' },
-                { feature: 'Growth Assets', plan6: '<20%', plan10: '>60%' },
-                { feature: 'Risk Profile', plan6: 'Low', plan10: 'Moderate' },
-                { feature: 'Time Horizon', plan6: '3-5 years', plan10: '5-10 years' },
-                { feature: 'Monthly Reporting', plan6: 'Yes', plan10: 'Yes' },
-                { feature: 'Quarterly Reviews', plan6: 'Yes', plan10: 'Yes' },
-                { feature: 'Phone Consultation', plan6: 'Monthly', plan10: 'Bi-weekly' }
-              ].map((row, index) => (
-                <div key={index} className={`${index % 2 === 0 ? 'bg-neutral-bg-base' : 'bg-neutral-bg-paper'} p-4`}>
-                  <div className="md:col-span-1 font-sans text-brand-900 font-semibold">{row.feature}</div>
-                  <div className="md:col-span-1 text-center font-sans text-neutral-text-secondary">{row.plan6}</div>
-                  <div className="md:col-span-1 text-center font-sans text-neutral-text-secondary">{row.plan10}</div>
-                </div>
-              ))}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="bg-neutral-bg-base rounded-sm shadow-card border border-neutral-border overflow-hidden"
+          >
+            <div className="grid grid-cols-3 bg-brand-900 text-neutral-bg-base">
+              <div className="p-6 font-serif font-bold tracking-wide">FEATURE</div>
+              <div className="p-6 text-center font-serif font-bold text-accent-bronze border-l border-white/10">6% PLAN</div>
+              <div className="p-6 text-center font-serif font-bold text-accent-gold border-l border-white/10">10% PLAN</div>
             </div>
-          </div>
+
+            {[
+              { feature: 'Annual Return Target', plan6: '6%', plan10: '10%' },
+              { feature: 'Minimum Investment', plan6: '100.000.000', plan10: '500.000.000' },
+              { feature: 'Conservative Assets', plan6: '>80%', plan10: '>40%' },
+              { feature: 'Growth Assets', plan6: '<20%', plan10: '>60%' },
+              { feature: 'Risk Profile', plan6: 'Low', plan10: 'Moderate' },
+              { feature: 'Time Horizon', plan6: '3-5 years', plan10: '5-10 years' },
+              { feature: 'Phone Consultation', plan6: 'Monthly', plan10: 'Bi-weekly' }
+            ].map((row, index) => (
+              <div key={index} className={`grid grid-cols-3 p-5 border-b border-neutral-border/50 ${index % 2 === 0 ? 'bg-neutral-bg-base' : 'bg-neutral-bg-paper'}`}>
+                <div className="font-sans font-bold text-brand-900 text-sm">{row.feature}</div>
+                <div className="text-center font-sans text-neutral-text-secondary text-sm">{row.plan6}</div>
+                <div className="text-center font-sans font-bold text-brand-900 text-sm">{row.plan10}</div>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-24">
+      {/* --- FAQ SECTION --- */}
+      <section className="py-24 bg-neutral-bg-base">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <h2 className="font-serif font-bold text-3xl md:text-4xl text-brand-900 text-center mb-16">
-            FREQUENTLY ASKED QUESTIONS
-          </h2>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+            <h2 className="font-serif font-bold text-3xl md:text-4xl text-brand-900">
+              FREQUENTLY ASKED
+            </h2>
+          </motion.div>
           
-          <div className="space-y-8">
+          <div className="space-y-6">
             {[
               {
                 q: 'What are the expected returns and how are they calculated?',
-                a: 'Our 6% and 10% targets are based on historical performance of conservative and balanced portfolio strategies in the Indonesian market. Returns are calculated using a combination of dividend income, capital appreciation, and currency hedging strategies.'
+                a: 'Our 6% and 10% targets are based on historical performance of conservative and balanced portfolio strategies in the Indonesian market.'
               },
               {
                 q: 'What are the risks associated with these investment plans?',
-                a: 'All investments carry risk. The 6% plan focuses on capital preservation with lower volatility, while the 10% plan accepts moderate risk for higher return potential. We minimize risk through diversification, quality asset selection, and active management.'
+                a: 'All investments carry risk. The 6% plan focuses on capital preservation with lower volatility, while the 10% plan accepts moderate risk for higher return potential.'
               },
               {
                 q: 'Can I withdraw my money before the minimum period?',
-                a: 'We recommend a minimum commitment period to optimize returns. Early withdrawals may be subject to penalties. Please refer to our service agreement for specific terms and conditions.'
+                a: 'We recommend a minimum commitment period to optimize returns. Early withdrawals may be subject to penalties. Please refer to our service agreement.'
               },
               {
                 q: 'How often will I receive performance reports?',
-                a: 'All clients receive monthly performance reports and quarterly portfolio reviews. Additional communication is available upon request, and the 10% plan includes bi-weekly consultation calls.'
-              },
-              {
-                q: 'What makes Anoa Investama different from other wealth managers?',
-                a: 'Our Cambridge and LSE education, value investing philosophy, focus on Indonesian families, and transparent 6-step process set us apart. We prioritize long-term wealth preservation over short-term gains.'
+                a: 'All clients receive monthly performance reports and quarterly portfolio reviews. Additional communication is available upon request.'
               }
             ].map((faq, index) => (
-              <div key={index} className="bg-neutral-bg-paper p-8 rounded-lg shadow-card">
-                <h3 className="font-serif font-bold text-lg text-brand-900 mb-4">{faq.q}</h3>
-                <p className="font-sans text-neutral-text-secondary leading-relaxed">{faq.a}</p>
-              </div>
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-neutral-bg-paper p-8 rounded-sm shadow-sm hover:shadow-card transition-shadow border border-neutral-border/30"
+              >
+                <h3 className="font-serif font-bold text-lg text-brand-900 mb-3">{faq.q}</h3>
+                <p className="font-sans text-sm text-neutral-text-secondary leading-relaxed">{faq.a}</p>
+              </motion.div>
             ))}
           </div>
         </div>
