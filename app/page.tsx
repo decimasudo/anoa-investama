@@ -161,7 +161,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-center justify-center gap-2">
                   <span className="w-1.5 h-1.5 bg-brand-500 rounded-full"></span>
-                  Minimal 100 Juta IDR
+                  Minimal 100.000.000 IDR
                 </li>
               </ul>
               
@@ -185,7 +185,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-center justify-center gap-2">
                   <span className="w-1.5 h-1.5 bg-brand-500 rounded-full"></span>
-                  Minimal 500 Juta IDR
+                  Minimal 500.000.000 IDR
                 </li>
               </ul>
               

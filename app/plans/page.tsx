@@ -87,7 +87,7 @@ export default function Plans() {
                 <div className="flex items-start gap-4">
                   <Lock className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="block font-sans text-sm font-bold text-brand-950">Minimum Entry: 100 Juta IDR</span>
+                    <span className="block font-sans text-sm font-bold text-brand-950">Minimum Entry: 100.000.000 IDR</span>
                     <p className="font-sans text-xs text-brand-900/60 mt-1">Accessible entry for foundational wealth building.</p>
                   </div>
                 </div>
@@ -146,7 +146,7 @@ export default function Plans() {
                 <div className="flex items-start gap-4">
                   <Lock className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="block font-sans text-sm font-bold text-white">Minimum Entry: 500 Juta IDR</span>
+                    <span className="block font-sans text-sm font-bold text-white">Minimum Entry: 500.000.000 IDR</span>
                     <p className="font-sans text-xs text-white/50 mt-1">Dedicated portfolio management and bi-weekly reviews.</p>
                   </div>
                 </div>
