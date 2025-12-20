@@ -83,12 +83,12 @@ export default function Process() {
   ]
 
   return (
-    <div className="animate-fade-up">
+    <div>
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-neutral-bg-base to-neutral-bg-paper">
+      <section className="py-24 bg-neutral-bg-base">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="font-serif font-bold text-4xl md:text-5xl text-brand-900 mb-6">
+            <h1 className="font-serif font-bold text-4xl md:text-5xl text-neutral-text-primary mb-6">
               THE HI PROCESS
             </h1>
             <p className="font-sans text-xl text-neutral-text-secondary max-w-4xl mx-auto leading-relaxed">
@@ -118,20 +118,20 @@ export default function Process() {
                       {/* Mobile Step Number */}
                       <div className="lg:hidden flex items-center mb-6">
                         <div className="w-16 h-16 bg-accent-gold rounded-full flex items-center justify-center mr-4">
-                          <span className="font-serif font-bold text-2xl text-brand-900">{step.number}</span>
+                          <span className="font-serif font-bold text-2xl text-neutral-text-primary">{step.number}</span>
                         </div>
                         <div>
-                          <h3 className="font-serif font-bold text-xl text-brand-900">{step.title}</h3>
-                          <p className="font-sans text-brand-700 font-semibold">{step.subtitle}</p>
+                          <h3 className="font-serif font-bold text-xl text-neutral-text-primary">{step.title}</h3>
+                          <p className="font-sans text-accent-bronze font-semibold">{step.subtitle}</p>
                         </div>
                       </div>
 
                       {/* Desktop Step Number */}
                       <div className="hidden lg:flex items-center mb-6">
-                        <IconComponent className={`w-8 h-8 text-brand-500 ${isEven ? 'mr-4' : 'ml-4'}`} />
+                        <IconComponent className={`w-8 h-8 text-accent-bronze ${isEven ? 'mr-4' : 'ml-4'}`} />
                         <div className={`${isEven ? 'text-right' : ''}`}>
-                          <h3 className="font-serif font-bold text-xl text-brand-900">{step.title}</h3>
-                          <p className="font-sans text-brand-700 font-semibold">{step.subtitle}</p>
+                          <h3 className="font-serif font-bold text-xl text-neutral-text-primary">{step.title}</h3>
+                          <p className="font-sans text-accent-bronze font-semibold">{step.subtitle}</p>
                         </div>
                       </div>
 
@@ -153,7 +153,7 @@ export default function Process() {
                   {/* Timeline Node */}
                   <div className="hidden lg:block absolute left-1/2 top-8 transform -translate-x-1/2 -translate-y-1/2">
                     <div className="w-16 h-16 bg-accent-gold rounded-full flex items-center justify-center border-4 border-white shadow-lg">
-                      <span className="font-serif font-bold text-xl text-brand-900">{step.number}</span>
+                      <span className="font-serif font-bold text-xl text-neutral-text-primary">{step.number}</span>
                     </div>
                   </div>
                 </div>
@@ -167,7 +167,7 @@ export default function Process() {
       <section className="py-24 bg-neutral-bg-paper">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-serif font-bold text-3xl md:text-4xl text-brand-900 mb-6">
+            <h2 className="font-serif font-bold text-3xl md:text-4xl text-neutral-text-primary mb-6">
               WHY OUR PROCESS WORKS
             </h2>
             <p className="font-sans text-xl text-neutral-text-secondary max-w-3xl mx-auto">
@@ -196,9 +196,9 @@ export default function Process() {
             ].map((benefit, index) => (
               <div key={index} className="text-center">
                 <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="font-serif font-bold text-xl text-brand-500">{index + 1}</span>
+                  <span className="font-serif font-bold text-xl text-accent-bronze">{index + 1}</span>
                 </div>
-                <h3 className="font-serif font-bold text-lg text-brand-900 mb-3">{benefit.title}</h3>
+                <h3 className="font-serif font-bold text-lg text-neutral-text-primary mb-3">{benefit.title}</h3>
                 <p className="font-sans text-sm text-neutral-text-secondary">{benefit.description}</p>
               </div>
             ))}
@@ -211,7 +211,7 @@ export default function Process() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="font-serif font-bold text-3xl md:text-4xl text-brand-900 mb-6">
+              <h2 className="font-serif font-bold text-3xl md:text-4xl text-neutral-text-primary mb-6">
                 COMPLETE TRANSPARENCY
               </h2>
               <p className="font-sans text-lg text-neutral-text-secondary mb-8 leading-relaxed">
@@ -234,31 +234,95 @@ export default function Process() {
               </div>
             </div>
             <div className="relative">
-              <img 
-                src="/images/dashboard_mockup_5.jpg" 
-                alt="Investment Dashboard Interface" 
-                className="w-full rounded-lg shadow-card"
-              />
-              <div className="absolute inset-0 bg-brand-900 bg-opacity-10 rounded-lg"></div>
+              {/* CSS-based dashboard interface illustration */}
+              <div className="bg-neutral-bg-paper rounded-lg p-6 shadow-md border border-neutral-border">
+                <div className="mb-4">
+                  <h4 className="font-serif font-bold text-lg text-neutral-text-primary mb-2">INVESTMENT DASHBOARD</h4>
+                  <div className="w-full h-1 bg-accent-gold rounded"></div>
+                </div>
+                
+                {/* Portfolio overview section */}
+                <div className="grid grid-cols-3 gap-4 mb-6">
+                  <div className="bg-accent-gold/10 p-3 rounded border border-neutral-border">
+                    <div className="text-xs text-neutral-text-muted mb-1">Total Value</div>
+                    <div className="text-lg font-bold text-neutral-text-primary">1.2B IDR</div>
+                  </div>
+                  <div className="bg-accent-success/10 p-3 rounded border border-neutral-border">
+                    <div className="text-xs text-neutral-text-muted mb-1">YTD Return</div>
+                    <div className="text-lg font-bold text-accent-success">+8.5%</div>
+                  </div>
+                  <div className="bg-accent-bronze/10 p-3 rounded border border-neutral-border">
+                    <div className="text-xs text-neutral-text-muted mb-1">Risk Score</div>
+                    <div className="text-lg font-bold text-accent-bronze">Low</div>
+                  </div>
+                </div>
+                
+                {/* Portfolio allocation chart */}
+                <div className="mb-6">
+                  <div className="text-sm font-sans text-neutral-text-muted mb-3">Portfolio Allocation</div>
+                  <div className="space-y-2">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-4 h-4 bg-accent-gold rounded"></div>
+                      <div className="flex-1 bg-neutral-bg-base h-3 rounded">
+                        <div className="h-full bg-accent-gold rounded" style={{ width: '65%' }}></div>
+                      </div>
+                      <span className="text-xs text-neutral-text-muted">65%</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-4 h-4 bg-accent-success rounded"></div>
+                      <div className="flex-1 bg-neutral-bg-base h-3 rounded">
+                        <div className="h-full bg-accent-success rounded" style={{ width: '25%' }}></div>
+                      </div>
+                      <span className="text-xs text-neutral-text-muted">25%</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-4 h-4 bg-neutral-text-muted rounded"></div>
+                      <div className="flex-1 bg-neutral-bg-base h-3 rounded">
+                        <div className="h-full bg-neutral-text-muted rounded" style={{ width: '10%' }}></div>
+                      </div>
+                      <span className="text-xs text-neutral-text-muted">10%</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Recent transactions */}
+                <div>
+                  <div className="text-sm font-sans text-neutral-text-muted mb-3">Recent Activity</div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center p-2 bg-neutral-bg-base rounded">
+                      <span className="text-xs text-neutral-text-secondary">Dividend Received</span>
+                      <span className="text-xs text-accent-success font-semibold">+2.5M IDR</span>
+                    </div>
+                    <div className="flex justify-between items-center p-2 bg-neutral-bg-base rounded">
+                      <span className="text-xs text-neutral-text-secondary">Portfolio Rebalance</span>
+                      <span className="text-xs text-neutral-text-muted">-0.3M IDR</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-6 text-center">
+                  <p className="text-accent-bronze font-sans text-xs">REAL-TIME PORTFOLIO MANAGEMENT</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-brand-900">
+      <section className="py-24 bg-neutral-text-primary">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="font-serif font-bold text-3xl md:text-4xl text-white mb-6">
+          <h2 className="font-serif font-bold text-3xl md:text-4xl text-neutral-bg-base mb-6">
             READY TO START YOUR INVESTMENT JOURNEY?
           </h2>
-          <p className="font-sans text-xl text-brand-100 mb-8 leading-relaxed">
+          <p className="font-sans text-xl text-neutral-bg-base/90 mb-8 leading-relaxed">
             Take the first step towards professional wealth management. Our team is ready to guide you through every stage of the HI Process.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-accent-gold text-brand-900 font-sans font-bold text-lg px-8 py-4 rounded-sm hover:bg-accent-gold-hover transition-colors duration-200">
+            <button className="bg-accent-gold text-neutral-text-primary font-sans font-bold text-lg px-8 py-4 rounded-sm hover:bg-accent-gold-hover transition-colors duration-200 shadow-md">
               SCHEDULE CONSULTATION
             </button>
-            <button className="border-2 border-white text-white font-sans font-bold text-lg px-8 py-4 rounded-sm hover:bg-white hover:text-brand-900 transition-colors duration-200">
+            <button className="border-2 border-neutral-bg-base text-neutral-bg-base font-sans font-bold text-lg px-8 py-4 rounded-sm hover:bg-neutral-bg-base hover:text-neutral-text-primary transition-colors duration-200">
               DOWNLOAD PROCESS GUIDE
             </button>
           </div>

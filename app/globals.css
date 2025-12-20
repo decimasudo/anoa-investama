@@ -2,19 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Google Fonts imports */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    font-family: "Lato", -apple-system, sans-serif;
-    background-color: #F5F5DC;
-    color: #3E1C00;
+    font-family: "Montserrat", "Trebuchet MS", "Avenir Next LT Std", -apple-system, sans-serif;
+    background-color: #E8E4D8;
+    color: #1E1108;
+    line-height: 1.6;
+    font-weight: 400;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Playfair Display", Georgia, serif;
+    font-family: "Playfair Display", "Times New Roman", serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1E1108;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  h3 {
+    font-size: 1.875rem;
+    font-weight: 600;
   }
 }
 
@@ -46,14 +71,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #F5F5DC;
+  background: #E8E4D8;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8B4513;
+  background: #8B6F47;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #5D2A00;
+  background: #6B5D47;
 }

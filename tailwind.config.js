@@ -9,8 +9,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
-        sans: ['"Lato"', '-apple-system', 'sans-serif']
+        serif: ['"Playfair Display"', '"Times New Roman"', 'serif'],
+        sans: ['"Montserrat"', '"Trebuchet MS"', '"Avenir Next LT Std"', '-apple-system', 'sans-serif'],
+        luxury: ['"Avenir Next LT Std"', '"Trebuchet MS"', 'sans-serif']
       },
       fontSize: {
         'xs': '12px',
@@ -36,23 +37,26 @@ module.exports = {
       },
       colors: {
         brand: {
-          900: '#3E1C00',
-          700: '#5D2A00',
-          500: '#8B4513',
-          300: '#A66B3D',
-          100: '#DCC5A8'
+          900: '#1E1108', // Primary text
+          700: '#2D1E0A',
+          500: '#3D2A0C',
+          300: '#5D4A0E',
+          100: '#A69B8C'
         },
         neutral: {
-          'bg-base': '#F5F5DC',
-          'bg-paper': '#FCFCF4',
-          'border': '#E6DCCA',
-          'text-primary': '#3E1C00',
-          'text-secondary': '#5D2A00'
+          'bg-base': '#E8E4D8', // Main background - warm cream
+          'bg-paper': '#F5F2E8', // Secondary background - lighter cream
+          'border': '#CDBBA0', // Borders/dividers - soft beige
+          'text-primary': '#1E1108', // Deep dark brown text
+          'text-secondary': '#3D2A0C',
+          'text-muted': '#8B7355'
         },
         accent: {
-          gold: '#C5A065',
-          'gold-hover': '#B08D55',
-          success: '#3D5D3D'
+          gold: '#D4AF37', // CTA buttons - luxury gold
+          'gold-hover': '#C49B1F',
+          bronze: '#8B6F47', // Accent color - warm bronze/gold
+          success: '#6B8E23',
+          'gold-light': '#F5DEB3'
         }
       },
       borderRadius: {

@@ -20,19 +20,19 @@ export default function Navigation() {
   const isActive = (path: string) => pathname === path
 
   return (
-    <nav className="sticky top-0 z-50 bg-neutral-bg-base border-b border-neutral-border">
+    <nav className="sticky top-0 z-50 bg-neutral-bg-base border-b border-neutral-border backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
             <img 
-              src="/images/anoa_symbol_1.jpg" 
+              src="/logo.png" 
               alt="Anoa Investama" 
-              className="h-10 w-10 rounded-full object-cover"
+              className="h-12 w-12 object-contain"
             />
             <div>
-              <div className="font-serif font-bold text-xl text-brand-900">ANOAK</div>
-              <div className="font-sans text-xs text-brand-700 tracking-widest">INVESTAMA</div>
+              <div className="font-serif font-bold text-xl text-neutral-text-primary">ANOA</div>
+              <div className="font-sans text-xs text-neutral-text-muted tracking-widest">INVESTAMA</div>
             </div>
           </Link>
 
@@ -44,8 +44,8 @@ export default function Navigation() {
                 href={item.path}
                 className={`font-sans text-sm tracking-wider uppercase transition-colors duration-200 ${
                   isActive(item.path)
-                    ? 'text-brand-700 font-bold'
-                    : 'text-neutral-text-primary hover:text-brand-700'
+                    ? 'text-accent-bronze font-bold'
+                    : 'text-neutral-text-primary hover:text-accent-bronze'
                 }`}
               >
                 {item.name}
@@ -55,17 +55,17 @@ export default function Navigation() {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <button className="font-sans text-sm text-brand-500 border border-brand-500 px-4 py-2 rounded-sm hover:bg-brand-500 hover:text-white transition-colors duration-200">
+            <button className="font-sans text-sm text-accent-bronze border border-accent-bronze px-4 py-2 rounded-sm hover:bg-accent-bronze hover:text-neutral-bg-base transition-colors duration-200">
               CLIENT LOGIN
             </button>
-            <button className="font-sans text-sm bg-accent-gold text-brand-900 px-6 py-2 rounded-sm hover:bg-accent-gold-hover transition-colors duration-200">
+            <button className="font-sans text-sm bg-accent-gold text-neutral-bg-base px-6 py-2 rounded-sm hover:bg-accent-gold-hover transition-colors duration-200 shadow-md">
               CONSULTATION
             </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-brand-700"
+            className="md:hidden text-accent-bronze"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -82,7 +82,7 @@ export default function Navigation() {
                   href={item.path}
                   className={`block font-sans text-sm tracking-wider uppercase ${
                     isActive(item.path)
-                      ? 'text-brand-700 font-bold'
+                      ? 'text-accent-bronze font-bold'
                       : 'text-neutral-text-primary'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
@@ -91,10 +91,10 @@ export default function Navigation() {
                 </Link>
               ))}
               <div className="pt-4 space-y-3">
-                <button className="w-full font-sans text-sm text-brand-500 border border-brand-500 px-4 py-2 rounded-sm">
+                <button className="w-full font-sans text-sm text-accent-bronze border border-accent-bronze px-4 py-2 rounded-sm">
                   CLIENT LOGIN
                 </button>
-                <button className="w-full font-sans text-sm bg-accent-gold text-brand-900 px-6 py-2 rounded-sm">
+                <button className="w-full font-sans text-sm bg-accent-gold text-neutral-bg-base px-6 py-2 rounded-sm">
                   CONSULTATION
                 </button>
               </div>

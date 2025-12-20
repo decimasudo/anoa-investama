@@ -29,9 +29,9 @@ export default function Contact() {
   }
 
   return (
-    <div className="animate-fade-up">
+    <div>
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-neutral-bg-base to-neutral-bg-paper">
+      <section className="py-24 bg-neutral-bg-base">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="font-serif font-bold text-4xl md:text-5xl text-brand-900 mb-6">
