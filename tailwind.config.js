@@ -9,34 +9,30 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['"Playfair Display"', '"Times New Roman"', 'serif'],
-        sans: ['"Montserrat"', '"Trebuchet MS"', '"Avenir Next LT Std"', '-apple-system', 'sans-serif'],
+        serif: ['"Cormorant Garamond"', 'serif'],
+        sans: ['"Lato"', 'sans-serif'],
       },
       colors: {
         brand: {
-          900: '#1E1108', // Primary text
-          700: '#2D1E0A',
-          500: '#3D2A0C',
+          950: '#120C0A', // Espresso (Darker, richer ink)
+          900: '#1F1A17', // Deep Charcoal Brown
+          800: '#3D342B', // Leather Brown
+          500: '#B08D55', // Metallic Bronze/Gold (The core accent)
+          400: '#D4C5A9', // Champagne Gold (Highlights)
         },
         neutral: {
-          'bg-base': '#E8E4D8', // Warm cream
-          'bg-paper': '#F5F2E8', // Lighter cream
-          'border': '#CDBBA0', 
-          'text-primary': '#1E1108',
-          'text-secondary': '#3D2A0C',
-          'text-muted': '#8B7355'
-        },
-        accent: {
-          gold: '#D4AF37', // Luxury gold
-          'gold-hover': '#C49B1F',
-          bronze: '#8B6F47',
-          success: '#6B8E23',
+          'bg-base': '#F2F0E9', // Alabaster (Warmer than previous cream)
+          'bg-dark': '#E6E2D6', // Darker Greige (For sections)
+          'surface': '#F9F8F6', // Almost white, for cards
         }
       },
-      boxShadow: {
-        'card': '0 4px 20px rgba(62, 28, 0, 0.08)',
-        'hover': '0 12px 32px rgba(62, 28, 0, 0.12)'
+      backgroundImage: {
+        'gold-gradient': 'linear-gradient(135deg, #B08D55 0%, #D4C5A9 50%, #8C6B3D 100%)',
+        'rich-gradient': 'linear-gradient(to bottom, rgba(242, 240, 233, 0) 0%, rgba(242, 240, 233, 1) 100%)',
       },
+      letterSpacing: {
+        widest: '.25em',
+      }
     },
   },
   plugins: [],

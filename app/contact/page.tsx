@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Clock, ArrowRight } from 'lucide-react'
+import { Mail, Phone, MapPin, Clock, ArrowRight, MessageSquare } from 'lucide-react'
+import Link from 'next/link'
 
 // Animation Variants
 const fadeInUp = {
@@ -11,184 +12,165 @@ const fadeInUp = {
 
 export default function Contact() {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-neutral-bg-base min-h-screen">
       
       {/* --- HERO SECTION --- */}
-      <section className="py-32 bg-neutral-bg-base border-b border-neutral-border/30">
+      <section className="relative py-32 border-b border-brand-900/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0 }}
             className="text-center mb-16"
           >
-            <span className="inline-block py-1 px-3 border border-accent-bronze/30 rounded-full text-accent-bronze font-sans text-xs font-bold tracking-widest mb-6">
-              CONCIERGE
+            <span className="inline-block py-1 px-3 border border-brand-500/30 rounded-full text-brand-500 font-sans text-[10px] font-bold tracking-[0.2em] uppercase mb-6">
+              Private Concierge
             </span>
-            <h1 className="font-serif font-bold text-5xl md:text-7xl text-brand-900 mb-6">
-              START THE <br/> CONVERSATION
+            <h1 className="font-serif font-bold text-5xl md:text-7xl text-brand-950 mb-8 leading-[1.1]">
+              Start the <br/>
+              <span className="italic text-brand-500 font-medium">Conversation.</span>
             </h1>
-            <p className="font-sans text-xl text-neutral-text-secondary max-w-2xl mx-auto leading-relaxed">
+            <p className="font-sans text-lg text-brand-900/70 max-w-2xl mx-auto leading-relaxed border-l-2 border-brand-500 pl-6 text-left md:text-center md:border-l-0 md:pl-0">
               We invite you to discuss your wealth preservation goals with our dedicated team. Our partners are available for private consultations by appointment.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* --- CONTACT GRID --- */}
-      <section className="py-24 bg-neutral-bg-paper">
+      {/* --- CONTACT INTERFACE --- */}
+      <section className="py-24 bg-neutral-bg-base">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-2xl">
             
-            {/* Left Column: Contact Info */}
+            {/* LEFT: INFO (Dark/Rich) */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-              className="space-y-12"
+              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.1 }}
+              className="bg-brand-950 text-neutral-bg-base p-12 lg:p-20 flex flex-col justify-between relative overflow-hidden"
             >
+              {/* Decorative Background */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-500/5 rounded-bl-full pointer-events-none"></div>
+
               <div>
-                <h3 className="font-serif font-bold text-3xl text-brand-900 mb-8">HEADQUARTERS</h3>
-                <div className="p-10 bg-neutral-bg-base border border-neutral-border/50 rounded-sm shadow-card hover:shadow-hover transition-shadow duration-500 group">
-                  <div className="flex items-start gap-6 mb-8">
-                    <div className="w-10 h-10 bg-neutral-bg-paper border border-neutral-border rounded-full flex items-center justify-center flex-shrink-0 group-hover:border-accent-gold transition-colors">
-                      <MapPin className="w-5 h-5 text-accent-bronze" />
+                <h3 className="font-serif text-3xl mb-12">Headquarters</h3>
+                
+                <div className="space-y-10">
+                  <div className="flex items-start gap-6">
+                    <div className="w-12 h-12 border border-brand-500/30 rounded-full flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-5 h-5 text-brand-500" />
                     </div>
                     <div>
-                      <h4 className="font-serif font-bold text-xl text-brand-900 mb-2">Jakarta Office</h4>
-                      <p className="font-sans text-neutral-text-secondary leading-relaxed">
+                      <h4 className="font-sans font-bold text-sm tracking-widest uppercase text-brand-500 mb-2">Location</h4>
+                      <p className="font-serif text-xl leading-relaxed">
                         Sudirman Central Business District<br/>
                         District 8, Treasury Tower<br/>
                         Jakarta, Indonesia 12190
                       </p>
                     </div>
                   </div>
-                  
-                  <div className="space-y-6 border-t border-neutral-border/50 pt-8">
-                    <div className="flex items-center gap-6">
-                      <div className="w-10 h-10 flex items-center justify-center">
-                        <Mail className="w-5 h-5 text-accent-bronze" />
-                      </div>
-                      <div>
-                        <span className="block font-sans text-[10px] text-neutral-text-muted uppercase tracking-widest mb-1">Email Us</span>
-                        <a href="mailto:hello@anoainvestama.com" className="font-serif text-lg text-brand-900 hover:text-accent-gold transition-colors">
-                          hello@anoainvestama.com
-                        </a>
-                      </div>
-                    </div>
 
-                    <div className="flex items-center gap-6">
-                      <div className="w-10 h-10 flex items-center justify-center">
-                        <Phone className="w-5 h-5 text-accent-bronze" />
-                      </div>
-                      <div>
-                        <span className="block font-sans text-[10px] text-neutral-text-muted uppercase tracking-widest mb-1">Call Us</span>
-                        <p className="font-serif text-lg text-brand-900">
-                          +62 21 5555 0000
-                        </p>
-                      </div>
+                  <div className="flex items-start gap-6">
+                    <div className="w-12 h-12 border border-brand-500/30 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-5 h-5 text-brand-500" />
                     </div>
+                    <div>
+                      <h4 className="font-sans font-bold text-sm tracking-widest uppercase text-brand-500 mb-2">Hours</h4>
+                      <p className="font-sans text-sm text-white/70 leading-relaxed">
+                        Monday - Friday<br/>
+                        09:00 - 17:00 WIB
+                      </p>
+                    </div>
+                  </div>
 
-                    <div className="flex items-center gap-6">
-                      <div className="w-10 h-10 flex items-center justify-center">
-                        <Clock className="w-5 h-5 text-accent-bronze" />
-                      </div>
-                      <div>
-                        <span className="block font-sans text-[10px] text-neutral-text-muted uppercase tracking-widest mb-1">Hours</span>
-                        <p className="font-sans text-sm text-brand-900 font-bold">
-                          Mon - Fri: 09:00 - 17:00 WIB
-                        </p>
-                      </div>
+                  <div className="flex items-start gap-6">
+                    <div className="w-12 h-12 border border-brand-500/30 rounded-full flex items-center justify-center flex-shrink-0">
+                      <MessageSquare className="w-5 h-5 text-brand-500" />
+                    </div>
+                    <div>
+                      <h4 className="font-sans font-bold text-sm tracking-widest uppercase text-brand-500 mb-2">Direct Line</h4>
+                      <p className="font-serif text-xl mb-1">+62 21 5555 0000</p>
+                      <a href="mailto:hello@anoainvestama.com" className="font-sans text-sm text-white/50 hover:text-white transition-colors">
+                        hello@anoainvestama.com
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Trust Signal Small */}
-              <div className="p-8 bg-brand-900 text-neutral-bg-base rounded-sm text-center">
-                <h4 className="font-serif font-bold text-xl mb-2 text-accent-gold">EXISTING CLIENT?</h4>
-                <p className="font-sans text-sm text-white/70 mb-6">Access your dedicated portal for direct support.</p>
-                <button className="border border-accent-gold text-accent-gold font-sans font-bold text-xs tracking-widest px-8 py-3 hover:bg-accent-gold hover:text-brand-900 transition-colors">
-                  LOGIN TO PORTAL
-                </button>
+              <div className="mt-16 pt-10 border-t border-white/10">
+                <p className="font-sans text-xs text-white/40 mb-4 uppercase tracking-widest">Existing Client?</p>
+                <Link href="/login" className="inline-flex items-center gap-3 text-brand-500 hover:text-white transition-colors font-sans text-sm font-bold tracking-widest uppercase">
+                  Access Portal <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </motion.div>
 
-            {/* Right Column: Inquiry Form (Stationery Style) */}
+            {/* RIGHT: FORM (Light/Paper) */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-              className="bg-neutral-bg-base p-10 lg:p-16 border border-neutral-border/50 shadow-lg relative"
+              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.2 }}
+              className="bg-neutral-surface p-12 lg:p-20 border-t lg:border-t-0 lg:border-l border-brand-900/5"
             >
-              {/* Decorative 'Stamp' */}
-              <div className="absolute top-8 right-8 w-20 h-20 border-2 border-accent-bronze/10 rounded-full flex items-center justify-center opacity-50 rotate-12 pointer-events-none">
-                <span className="font-sans text-[10px] font-bold text-accent-bronze/30 uppercase tracking-widest text-center">Reply<br/>Requested</span>
-              </div>
-
-              <h3 className="font-serif font-bold text-2xl text-brand-900 mb-8">REQUEST INTRODUCTION</h3>
+              <h3 className="font-serif text-3xl text-brand-950 mb-2">Request Introduction</h3>
+              <p className="font-sans text-sm text-brand-900/50 mb-10">Please fill out the details below. Our team will contact you shortly.</p>
               
-              <form className="space-y-10">
+              <form className="space-y-8">
                 <div className="group">
-                  <label className="block font-sans text-xs font-bold text-neutral-text-muted uppercase tracking-widest mb-2 group-focus-within:text-accent-gold transition-colors">Full Name</label>
+                  <label className="block font-sans text-[10px] font-bold text-brand-900/40 uppercase tracking-widest mb-2 group-focus-within:text-brand-500 transition-colors">Full Name</label>
                   <input 
                     type="text" 
-                    className="w-full bg-transparent border-b border-neutral-border py-2 text-brand-900 font-serif text-lg focus:outline-none focus:border-accent-gold transition-colors placeholder:text-neutral-border/50"
+                    className="w-full bg-transparent border-b border-brand-900/10 py-3 text-brand-950 font-serif text-lg focus:outline-none focus:border-brand-500 transition-colors placeholder:text-brand-900/20"
                     placeholder="Enter your name"
                   />
                 </div>
 
-                <div className="group">
-                  <label className="block font-sans text-xs font-bold text-neutral-text-muted uppercase tracking-widest mb-2 group-focus-within:text-accent-gold transition-colors">Email Address</label>
-                  <input 
-                    type="email" 
-                    className="w-full bg-transparent border-b border-neutral-border py-2 text-brand-900 font-serif text-lg focus:outline-none focus:border-accent-gold transition-colors placeholder:text-neutral-border/50"
-                    placeholder="name@company.com"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="group">
+                    <label className="block font-sans text-[10px] font-bold text-brand-900/40 uppercase tracking-widest mb-2 group-focus-within:text-brand-500 transition-colors">Email Address</label>
+                    <input 
+                      type="email" 
+                      className="w-full bg-transparent border-b border-brand-900/10 py-3 text-brand-950 font-serif text-lg focus:outline-none focus:border-brand-500 transition-colors placeholder:text-brand-900/20"
+                      placeholder="name@company.com"
+                    />
+                  </div>
+                  <div className="group">
+                    <label className="block font-sans text-[10px] font-bold text-brand-900/40 uppercase tracking-widest mb-2 group-focus-within:text-brand-500 transition-colors">Phone</label>
+                    <input 
+                      type="tel" 
+                      className="w-full bg-transparent border-b border-brand-900/10 py-3 text-brand-950 font-serif text-lg focus:outline-none focus:border-brand-500 transition-colors placeholder:text-brand-900/20"
+                      placeholder="+62..."
+                    />
+                  </div>
                 </div>
 
                 <div className="group">
-                  <label className="block font-sans text-xs font-bold text-neutral-text-muted uppercase tracking-widest mb-2 group-focus-within:text-accent-gold transition-colors">Phone (Optional)</label>
-                  <input 
-                    type="tel" 
-                    className="w-full bg-transparent border-b border-neutral-border py-2 text-brand-900 font-serif text-lg focus:outline-none focus:border-accent-gold transition-colors placeholder:text-neutral-border/50"
-                    placeholder="+62"
-                  />
-                </div>
-
-                <div className="group">
-                  <label className="block font-sans text-xs font-bold text-neutral-text-muted uppercase tracking-widest mb-2 group-focus-within:text-accent-gold transition-colors">Inquiry Type</label>
-                  <select className="w-full bg-transparent border-b border-neutral-border py-2 text-brand-900 font-serif text-lg focus:outline-none focus:border-accent-gold transition-colors cursor-pointer">
+                  <label className="block font-sans text-[10px] font-bold text-brand-900/40 uppercase tracking-widest mb-2 group-focus-within:text-brand-500 transition-colors">Inquiry Type</label>
+                  <select className="w-full bg-transparent border-b border-brand-900/10 py-3 text-brand-950 font-serif text-lg focus:outline-none focus:border-brand-500 transition-colors cursor-pointer">
                     <option>Investment Management</option>
                     <option>Family Office Services</option>
                     <option>Partnership Inquiry</option>
-                    <option>Media & Press</option>
                   </select>
                 </div>
 
                 <div className="group">
-                  <label className="block font-sans text-xs font-bold text-neutral-text-muted uppercase tracking-widest mb-2 group-focus-within:text-accent-gold transition-colors">Message</label>
+                  <label className="block font-sans text-[10px] font-bold text-brand-900/40 uppercase tracking-widest mb-2 group-focus-within:text-brand-500 transition-colors">Message</label>
                   <textarea 
-                    rows={4}
-                    className="w-full bg-transparent border-b border-neutral-border py-2 text-brand-900 font-serif text-lg focus:outline-none focus:border-accent-gold transition-colors placeholder:text-neutral-border/50 resize-none"
+                    rows={3}
+                    className="w-full bg-transparent border-b border-brand-900/10 py-3 text-brand-950 font-serif text-lg focus:outline-none focus:border-brand-500 transition-colors placeholder:text-brand-900/20 resize-none"
                     placeholder="How can we assist you?"
                   />
                 </div>
 
-                <div className="pt-6">
-                  <button className="w-full bg-brand-900 text-neutral-bg-base font-sans font-bold text-sm tracking-widest py-5 hover:bg-accent-gold hover:text-brand-900 transition-all duration-300 flex items-center justify-center group">
-                    SUBMIT INQUIRY
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                  <p className="text-center mt-4 font-sans text-[10px] text-neutral-text-muted">
-                    By submitting this form, you agree to our privacy policy regarding confidential information.
-                  </p>
-                </div>
+                <button className="w-full bg-brand-950 text-neutral-bg-base font-sans font-bold text-xs tracking-[0.2em] uppercase py-5 hover:bg-brand-500 hover:text-brand-950 transition-all duration-300 shadow-lg mt-4">
+                  Submit Inquiry
+                </button>
               </form>
             </motion.div>
 

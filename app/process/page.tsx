@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Calculator, FileText, Shield, Key, Eye, BarChart3, Check } from 'lucide-react'
+import Link from 'next/link'
+import { Calculator, FileText, Shield, Key, Eye, BarChart3, CheckCircle, ArrowRight } from 'lucide-react'
 
 // Animation Variants
 const fadeInUp = {
@@ -13,335 +14,208 @@ export default function Process() {
   const steps = [
     {
       number: '01',
-      title: 'BUDGET DETERMINATION',
-      subtitle: 'Define Your Investment Goals',
-      description: 'We begin by understanding your financial objectives, risk tolerance, and investment timeline. Determine whether you need fixed income or growth-oriented strategies.',
+      title: 'Budget & Horizon',
+      subtitle: 'Definition',
+      description: 'We begin by determining the capital to be entrusted. You select a fixed budget or growth strategy (monthly installments) and define the management timeline.',
       icon: Calculator,
-      details: [
-        'Investment goal assessment',
-        'Risk profile evaluation',
-        'Time horizon determination',
-        'Budget allocation planning'
-      ]
+      details: ['Capital assessment', 'Risk tolerance check', 'Timeline (Jangka Waktu) setup']
     },
     {
       number: '02',
-      title: 'RDN OPENING',
-      subtitle: 'Ajaib Partnership & KYC',
-      description: 'Open your Rekening Dana Nasabah (RDN) through our Ajaib partnership. Complete KYC process using referral code "wealthypeople" for streamlined onboarding.',
+      title: 'RDN Opening',
+      subtitle: 'Partnership',
+      description: 'Open your Rekening Dana Nasabah (RDN) through our Ajaib partnership. Complete the KYC process using our referral code for streamlined onboarding.',
       icon: FileText,
-      details: [
-        'RDN account opening with Ajaib',
-        'KYC documentation with referral',
-        'Bank account verification',
-        'Initial deposit setup'
-      ]
+      details: ['Ajaib account setup', 'KYC Verification (2 days)', 'Referral: "wealthypeople"']
     },
     {
       number: '03',
-      title: 'LEGAL FRAMEWORK',
-      subtitle: 'SPPD Agreement & Compliance',
-      description: 'Sign the Surat Perjanjian Pengelolaan Dana (SPPD) with proper stamp duty. This legal framework ensures transparency and protects both parties.',
+      title: 'Legal Framework',
+      subtitle: 'Compliance',
+      description: 'Sign the Surat Perjanjian Pengelolaan Dana (SPPD). This agreement is signed on stamp duty (Materai) to ensure full legal protection and transparency.',
       icon: Shield,
-      details: [
-        'SPPD agreement signing',
-        'Stamp duty payment',
-        'Legal compliance verification',
-        'Terms and conditions review'
-      ]
+      details: ['SPPD Agreement drafting', 'Stamp duty (Materai) signing', 'Compliance review']
     },
     {
       number: '04',
-      title: 'ACCESS PROVISION',
-      subtitle: 'Secure Login Credentials',
-      description: 'Provide secure login credentials for portfolio management access. We ensure you have full visibility into your investment account and performance.',
+      title: 'Access Handover',
+      subtitle: 'Security',
+      description: 'Securely provide login credentials for portfolio management. We establish a secure protocol for ongoing access while ensuring you retain full ownership.',
       icon: Key,
-      details: [
-        'Secure credential setup',
-        'Account access verification',
-        'Dashboard orientation',
-        'Security protocols explanation'
-      ]
+      details: ['Secure credential transfer', '2FA Setup', 'Ownership verification']
     },
     {
       number: '05',
-      title: 'MONITORING',
-      subtitle: 'Regular Transparency & Tracking',
-      description: 'Enjoy complete transparency with regular performance monitoring. Track your portfolio growth through detailed monthly reports and quarterly reviews.',
-      icon: Eye,
-      details: [
-        'Monthly performance reports',
-        'Portfolio tracking dashboard',
-        'Risk monitoring alerts',
-        'Quarterly review meetings'
-      ]
+      title: 'Active Management',
+      subtitle: 'Execution',
+      description: 'Our team takes over the daily management. We execute the value investing strategy, rebalancing and optimizing based on the agreed risk profile.',
+      icon: BarChart3,
+      details: ['Value stock selection', 'Portfolio rebalancing', 'Dividend reinvestment']
     },
     {
       number: '06',
-      title: 'MANAGEMENT',
-      subtitle: 'Ongoing Optimization & Reporting',
-      description: 'Benefit from active portfolio management with ongoing optimization strategies. Receive comprehensive reporting and strategic adjustments as needed.',
-      icon: BarChart3,
-      details: [
-        'Active portfolio management',
-        'Strategic rebalancing',
-        'Tax optimization strategies',
-        'Annual performance reviews'
-      ]
+      title: 'Transparency',
+      subtitle: 'Monitoring',
+      description: 'Sit back and relax. You perform periodic checks on your personal stock account to monitor growth, receiving full reports on every movement.',
+      icon: Eye,
+      details: ['Real-time monitoring', 'Periodic reporting', 'Full transparency']
     }
   ]
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-neutral-bg-base min-h-screen">
       
       {/* --- HERO SECTION --- */}
-      <section className="py-32 bg-neutral-bg-base border-b border-neutral-border/30">
+      <section className="relative py-32 border-b border-brand-900/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0 }}
             className="text-center mb-16"
           >
-            <span className="inline-block py-1 px-3 border border-accent-bronze/30 rounded-full text-accent-bronze font-sans text-xs font-bold tracking-widest mb-6">
-              THE JOURNEY
+            <span className="inline-block py-1 px-3 border border-brand-500/30 rounded-full text-brand-500 font-sans text-[10px] font-bold tracking-[0.2em] uppercase mb-6">
+              The Journey
             </span>
-            <h1 className="font-serif font-bold text-4xl md:text-6xl text-brand-900 mb-6">
-              HOME INVESTMENT <br/> PROCESS
+            <h1 className="font-serif font-bold text-5xl md:text-7xl text-brand-950 mb-8 leading-[1.1]">
+              The Home Investment <br/>
+              <span className="italic text-brand-500 font-medium">Protocol.</span>
             </h1>
-            <p className="font-sans text-xl text-neutral-text-secondary max-w-3xl mx-auto leading-relaxed">
-              Our transparent 6-step investment journey ensures clarity, compliance, and optimal results. No hidden processes—just professional wealth management done right.
+            <p className="font-sans text-lg text-brand-900/70 max-w-3xl mx-auto leading-relaxed border-l-2 border-brand-500 pl-6 text-left md:text-center md:border-l-0 md:pl-0">
+              A seamless, six-step onboarding process designed for clarity, security, and legal compliance. We handle the complexity so you can focus on the results.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* --- PROCESS TIMELINE (The Gold Thread) --- */}
-      <section className="py-24 bg-neutral-bg-base relative">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+      <section className="py-24 bg-neutral-bg-base">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="relative">
             
-            {/* The Gold Thread (Vertical Line) */}
-            <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-accent-gold/30"></div>
+            {/* The Vertical Gold Thread */}
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-brand-900/10 md:-translate-x-1/2"></div>
 
             {steps.map((step, index) => {
-              const IconComponent = step.icon
-              const isEven = index % 2 === 0
-
+              const isEven = index % 2 === 0;
               return (
                 <motion.div 
                   key={index}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, margin: "-100px" }}
+                  viewport={{ once: true }}
                   variants={fadeInUp}
-                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: index * 0.1 }}
-                  className={`relative mb-24 flex items-center ${isEven ? 'justify-start' : 'justify-end'}`}
+                  transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: index * 0.1 }}
+                  className={`relative flex flex-col md:flex-row items-start mb-20 ${isEven ? 'md:flex-row-reverse' : ''}`}
                 >
                   
-                  {/* Step Content Card */}
-                  <div className={`lg:w-5/12 ${isEven ? 'lg:pr-12' : 'lg:pl-12 text-left'}`}>
-                    <div className="bg-neutral-bg-paper p-10 rounded-sm shadow-card hover:shadow-hover transition-all duration-500 border border-neutral-border/40 relative group">
-                      
-                      {/* Decorative Corner */}
-                      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-accent-gold/20 -mt-2 -mr-2 group-hover:border-accent-gold transition-colors duration-500"></div>
+                  {/* Step Number Node */}
+                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-neutral-bg-base border-2 border-brand-500 flex items-center justify-center z-10 shadow-lg">
+                    <span className="font-serif text-xl font-bold text-brand-950">{step.number}</span>
+                  </div>
 
-                      <div className="flex items-center gap-4 mb-6">
-                         <div className="w-12 h-12 bg-neutral-bg-base border border-neutral-border rounded-full flex items-center justify-center text-accent-bronze">
-                            <IconComponent size={20} strokeWidth={1.5} />
-                         </div>
-                         <div>
-                            <span className="font-serif font-bold text-3xl text-brand-900 block leading-none">{step.number}</span>
-                            <span className="font-sans text-[10px] tracking-[0.2em] text-accent-gold uppercase font-bold">Step</span>
-                         </div>
+                  {/* Content Card */}
+                  <div className={`ml-20 md:ml-0 md:w-1/2 ${isEven ? 'md:pl-16' : 'md:pr-16'}`}>
+                    <div className="bg-neutral-surface p-8 border border-brand-900/5 hover:border-brand-500/30 hover:shadow-xl transition-all duration-500 group relative">
+                      
+                      {/* Icon */}
+                      <div className="mb-6 inline-block p-3 bg-brand-950 text-brand-500 rounded-sm">
+                        <step.icon className="w-6 h-6" strokeWidth={1.5} />
                       </div>
 
-                      <h3 className="font-serif font-bold text-2xl text-brand-900 mb-2">{step.title}</h3>
-                      <p className="font-sans text-xs font-bold text-accent-bronze mb-6 tracking-wide uppercase">{step.subtitle}</p>
+                      <div className="mb-4">
+                        <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-brand-500 font-bold block mb-1">{step.subtitle}</span>
+                        <h3 className="font-serif text-2xl text-brand-950">{step.title}</h3>
+                      </div>
 
-                      <p className="font-sans text-neutral-text-secondary mb-8 leading-relaxed text-sm">
+                      <p className="font-sans text-sm text-brand-900/70 leading-relaxed mb-6">
                         {step.description}
                       </p>
 
-                      <div className="space-y-3 pt-6 border-t border-neutral-border/30">
-                        {step.details.map((detail, detailIndex) => (
-                          <div key={detailIndex} className="flex items-start space-x-3">
-                            <Check className="w-4 h-4 text-accent-gold flex-shrink-0 mt-0.5" />
-                            <span className="font-sans text-xs font-bold text-neutral-text-primary/70">{detail}</span>
-                          </div>
+                      <ul className="space-y-2 border-t border-brand-900/5 pt-4">
+                        {step.details.map((detail, i) => (
+                          <li key={i} className="flex items-center gap-2">
+                            <CheckCircle className="w-3 h-3 text-brand-500" />
+                            <span className="font-sans text-xs text-brand-900/60 font-medium">{detail}</span>
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     </div>
                   </div>
 
-                  {/* Center Node (The Gem) */}
-                  <div className="hidden lg:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                    <div className="w-4 h-4 bg-accent-gold rounded-full border-4 border-neutral-bg-base shadow-md"></div>
-                  </div>
+                  {/* Empty Spacer for the other side */}
+                  <div className="hidden md:block md:w-1/2"></div>
 
                 </motion.div>
               )
             })}
+
           </div>
         </div>
       </section>
 
-      {/* --- DASHBOARD PREVIEW (The "Report") --- */}
-      <section className="py-24 bg-neutral-bg-paper border-t border-neutral-border/30">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeInUp}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0 }}
-            >
-              <h2 className="font-serif font-bold text-4xl text-brand-900 mb-8 leading-tight">
-                COMPLETE <br/> <span className="text-accent-gold">TRANSPARENCY</span>
-              </h2>
-              <p className="font-sans text-lg text-neutral-text-secondary mb-10 leading-relaxed border-l-2 border-brand-900 pl-6">
-                Monitor your investment performance in real-time through our secure client portal. Full visibility into portfolio composition, returns, and risk metrics.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[
-                  'Real-time Performance',
-                  'Asset Breakdown',
-                  'Monthly Reports',
-                  'Risk Monitoring',
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-3 p-4 bg-neutral-bg-base rounded-sm border border-neutral-border/50">
-                    <div className="w-2 h-2 bg-accent-gold rounded-full flex-shrink-0"></div>
-                    <span className="font-sans font-bold text-xs tracking-widest text-brand-900 uppercase">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Dashboard Interface - Styled like a High-End Paper Report */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1 }}
-              className="relative"
-            >
-              <div className="bg-[#FDFBF7] p-8 rounded-sm shadow-card border border-neutral-border relative overflow-hidden">
-                {/* Header of Report */}
-                <div className="flex justify-between items-end mb-8 border-b-2 border-brand-900 pb-4">
-                  <div>
-                    <h4 className="font-serif font-bold text-2xl text-brand-900">PORTFOLIO REPORT</h4>
-                    <p className="font-sans text-[10px] tracking-[0.2em] text-neutral-text-muted uppercase">Client ID: 8829-ANOA</p>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-3xl font-serif font-bold text-accent-bronze">1.200.000.000 <span className="text-sm text-brand-900">IDR</span></div>
-                    <p className="font-sans text-[10px] tracking-[0.2em] text-neutral-text-muted uppercase">Total Asset Value</p>
-                  </div>
-                </div>
-                
-                {/* Stats Grid */}
-                <div className="grid grid-cols-3 gap-4 mb-8">
-                  {[
-                    { label: 'YTD Return', value: '+8.5%', color: 'text-accent-success' },
-                    { label: 'Risk Score', value: 'Low', color: 'text-brand-900' },
-                    { label: 'Dividends', value: '2.500.000', color: 'text-accent-gold' }
-                  ].map((stat, i) => (
-                    <div key={i} className="bg-neutral-bg-base p-4 border border-neutral-border/30 text-center">
-                      <div className="text-[10px] font-bold tracking-widest text-neutral-text-muted uppercase mb-2">{stat.label}</div>
-                      <div className={`text-xl font-serif font-bold ${stat.color}`}>{stat.value}</div>
-                    </div>
-                  ))}
-                </div>
-                
-                {/* "Chart" Visualization */}
-                <div className="mb-8">
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="font-sans text-xs font-bold tracking-widest text-brand-900">ASSET ALLOCATION</span>
-                    <span className="font-serif italic text-neutral-text-muted text-sm">Conservative Strategy</span>
-                  </div>
-                  <div className="flex w-full h-4 rounded-full overflow-hidden">
-                    <div className="w-[65%] bg-brand-900"></div>
-                    <div className="w-[25%] bg-accent-gold"></div>
-                    <div className="w-[10%] bg-neutral-border"></div>
-                  </div>
-                  <div className="flex justify-between mt-3 text-[10px] font-sans text-neutral-text-muted uppercase tracking-widest">
-                    <span className="flex items-center gap-1"><span className="w-2 h-2 bg-brand-900 rounded-full"></span> 65% Bonds</span>
-                    <span className="flex items-center gap-1"><span className="w-2 h-2 bg-accent-gold rounded-full"></span> 25% Equity</span>
-                    <span className="flex items-center gap-1"><span className="w-2 h-2 bg-neutral-border rounded-full"></span> 10% Cash</span>
-                  </div>
-                </div>
-
-                <div className="text-center pt-4 border-t border-neutral-border/30">
-                  <span className="font-serif italic text-accent-bronze text-sm">Generated by Anoa Investama Private Client Systems</span>
-                </div>
-              </div>
-              
-              {/* Background accent */}
-              <div className="absolute -z-10 top-6 -right-6 w-full h-full bg-brand-900/5 rounded-sm"></div>
-            </motion.div>
-          </div>
+      {/* --- PROTOCOLS (Grid) --- */}
+      <section className="py-32 bg-brand-950 text-neutral-bg-base relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-32 h-32 border border-accent-gold/20 rounded-full"></div>
+          <div className="absolute bottom-20 right-10 w-24 h-24 border border-accent-gold/20 rounded-full"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-accent-gold/10 rounded-full"></div>
         </div>
-      </section>
 
-      {/* --- BENEFITS --- */}
-      <section className="py-24 bg-neutral-bg-base">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-           <div className="text-center mb-16">
-            <h2 className="font-serif font-bold text-3xl md:text-4xl text-brand-900 mb-6">
-              WHY OUR PROCESS WORKS
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-block mb-8">
+              <span className="inline-block py-2 px-4 border border-accent-gold/30 rounded-full text-accent-gold font-sans text-xs font-bold tracking-widest uppercase mb-4">
+                Our Commitment
+              </span>
+            </div>
+            <h2 className="font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-8 leading-tight">
+              Operational
+              <span className="block text-accent-gold italic font-medium">Standards</span>
             </h2>
-            <div className="w-24 h-px bg-accent-gold mx-auto"></div>
+            <p className="font-sans text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+              Institutional-grade protocols ensuring your wealth is managed with the highest standards of security, compliance, and transparency.
+            </p>
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <div className="w-16 h-px bg-accent-gold/50"></div>
+              <div className="w-2 h-2 bg-accent-gold rounded-full"></div>
+              <div className="w-16 h-px bg-accent-gold/50"></div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: 'TRANSPARENT', desc: 'Full documentation and visibility.' },
-              { title: 'COMPLIANT', desc: 'Adhering to strict ID regulations.' },
-              { title: 'EFFICIENT', desc: 'Streamlined, digital-first process.' },
-              { title: 'CLIENT-CENTRIC', desc: 'Designed around your legacy goals.' }
-            ].map((benefit, index) => (
-              <motion.div 
-                key={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                variants={fadeInUp}
-                className="text-center group p-6 hover:bg-neutral-bg-paper transition-colors duration-500 rounded-sm"
-              >
-                <div className="w-12 h-12 bg-neutral-bg-paper border border-neutral-border rounded-full flex items-center justify-center mx-auto mb-6 group-hover:border-accent-gold transition-colors">
-                  <span className="font-serif font-bold text-lg text-accent-bronze">{index + 1}</span>
-                </div>
-                <h3 className="font-serif font-bold text-lg text-brand-900 mb-3 tracking-wide">{benefit.title}</h3>
-                <p className="font-sans text-xs text-neutral-text-secondary leading-relaxed uppercase tracking-widest">{benefit.desc}</p>
-              </motion.div>
+              { title: "Legal Safety", desc: "All agreements are executed on stamp duty (Materai) to ensure binding legal protection for both parties under Indonesian law." },
+              { title: "Segregated Accounts", desc: "Your funds remain in your personal RDN (Rekening Dana Nasabah) at all times. We manage; we do not hold custody." },
+              { title: "Data Privacy", desc: "Strict confidentiality protocols regarding your personal data, login credentials, and portfolio value." }
+            ].map((item, i) => (
+              <div key={i} className="text-center p-8 border border-white/10 hover:bg-white/10 transition-colors duration-300">
+                <Shield className="w-8 h-8 text-accent-gold mx-auto mb-6" strokeWidth={1} />
+                <h3 className="font-serif text-xl font-bold mb-4 text-white">{item.title}</h3>
+                <p className="font-sans text-sm text-white/80 leading-relaxed">{item.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* --- CTA --- */}
-      <section className="py-24 bg-brand-900 text-neutral-bg-base">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="font-serif font-bold text-4xl mb-8">
-            READY TO BEGIN?
+      <section className="py-24 bg-neutral-bg-base text-center">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="font-serif text-3xl md:text-4xl text-brand-950 mb-8">
+            Ready to deploy capital?
           </h2>
-          <p className="font-sans text-lg text-white/70 mb-10 leading-relaxed max-w-2xl mx-auto">
-            Our team is ready to guide you through every stage of the Home Investment Process. Secure your financial future today.
+          <p className="font-sans text-brand-900/60 mb-10 leading-relaxed">
+            Begin the onboarding process today. Our team is ready to guide you through RDN setup and strategy selection.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-accent-gold text-brand-900 font-sans font-bold text-sm tracking-widest px-10 py-4 rounded-sm hover:bg-white transition-colors duration-300">
-              SCHEDULE CONSULTATION
-            </button>
-            <button className="border border-neutral-bg-base text-neutral-bg-base font-sans font-bold text-sm tracking-widest px-10 py-4 rounded-sm hover:bg-neutral-bg-base hover:text-brand-900 transition-colors duration-300">
-              DOWNLOAD GUIDE
-            </button>
-          </div>
+          <Link href="/contact" className="inline-flex items-center gap-3 bg-brand-950 text-neutral-bg-base px-10 py-4 font-sans text-xs font-bold tracking-[0.2em] hover:bg-brand-500 transition-colors duration-300">
+            INITIATE ONBOARDING <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
+
     </div>
   )
 }

@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 1. Import the "OG" Fonts: Montserrat (Sans) & Playfair Display (Serif) */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap');
 
 @layer base {
   html {
@@ -11,48 +10,53 @@
   }
 
   body {
-    font-family: "Montserrat", "Trebuchet MS", sans-serif;
-    background-color: #E8E4D8; /* Neutral Cream Base */
-    color: #1E1108; /* Brand 900 (Dark Brown) */
-    line-height: 1.6;
-    font-weight: 400;
+    font-family: "Lato", sans-serif;
+    background-color: #F2F0E9; /* Updated to Alabaster */
+    color: #1F1A17; /* Deep Charcoal */
+    line-height: 1.8;
+    font-weight: 300;
+    min-height: 100vh;
+    
+    /* 1. Grain Texture */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
+  /* 2. Vignette Overlay (Darker edges, lighter center) */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, transparent 0%, rgba(31, 26, 23, 0.03) 100%);
+    pointer-events: none;
+    z-index: 9999;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Playfair Display", serif;
-    font-weight: 700;
-    line-height: 1.2;
-    color: #1E1108;
+    font-family: "Cormorant Garamond", serif;
+    color: #120C0A; /* Espresso */
+    line-height: 1.1;
   }
 }
 
 @layer components {
-  /* Your Original Custom Buttons */
-  .btn-primary {
-    @apply bg-accent-gold text-brand-900 font-sans font-bold px-6 py-3 rounded-sm hover:bg-accent-gold-hover transition-colors duration-200 shadow-md;
+  /* Richer Ghost Button with Gold Hover */
+  .btn-luxury {
+    @apply relative inline-block border border-brand-900/20 text-brand-900 font-sans text-[11px] tracking-[0.2em] uppercase px-8 py-4 
+    transition-all duration-700 ease-out 
+    hover:border-brand-500 hover:text-brand-500 hover:bg-white/50;
+  }
+  
+  /* Gold Text Utility */
+  .text-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #B08D55 0%, #D4C5A9 50%, #8C6B3D 100%);
   }
 
-  .btn-secondary {
-    @apply border border-brand-500 text-brand-500 font-sans font-bold px-6 py-3 rounded-sm hover:bg-brand-500 hover:text-neutral-bg-base transition-colors duration-200;
+  /* Section Divider Line */
+  .divider-y {
+    @apply w-px h-16 bg-brand-900/10 mx-auto my-12;
   }
-
-  /* Standard Card Style */
-  .card {
-    @apply bg-neutral-bg-paper p-8 rounded-lg shadow-card border border-neutral-border/20;
-  }
-}
-
-/* Custom Scrollbar for a premium feel */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #E8E4D8;
-}
-::-webkit-scrollbar-thumb {
-  background: #8B6F47; /* Bronze */
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #D4AF37; /* Gold */
 }

@@ -6,6 +6,9 @@ import Footer from 'components/Footer'
 export const metadata: Metadata = {
   title: 'Anoa Investama | Luxury Asset Management',
   description: 'Value investing strategies for Indonesian families.',
+  icons: {
+    icon: '/logo.png',
+  },
 }
 
 export default function RootLayout({
