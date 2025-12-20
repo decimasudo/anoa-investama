@@ -63,7 +63,7 @@ export default function Plans() {
                   <div>
                     <h4 className="font-sans font-bold text-brand-900 mb-2">Minimum Investment</h4>
                     <p className="font-sans text-neutral-text-secondary">
-                      <span className="text-2xl font-bold text-brand-500">100jt IDR</span> minimum entry, 
+                      <span className="text-2xl font-bold text-brand-500">1.000.000 IDR</span> minimum entry, 
                       with flexible contribution options.
                     </p>
                   </div>
@@ -190,7 +190,7 @@ export default function Plans() {
               {/* Rows */}
               {[
                 { feature: 'Annual Return Target', plan6: '6%', plan10: '10%' },
-                { feature: 'Minimum Investment', plan6: '100jt IDR', plan10: '500jt IDR' },
+                { feature: 'Minimum Investment', plan6: '1.000.000 IDR', plan10: '500jt IDR' },
                 { feature: 'Conservative Assets', plan6: '>80%', plan10: '>40%' },
                 { feature: 'Growth Assets', plan6: '<20%', plan10: '>60%' },
                 { feature: 'Risk Profile', plan6: 'Low', plan10: 'Moderate' },

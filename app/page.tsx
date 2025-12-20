@@ -107,7 +107,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="font-sans text-neutral-text-muted">Minimum Entry</span>
-                  <span className="font-sans font-bold text-neutral-text-primary">100jt IDR</span>
+                  <span className="font-sans font-bold text-neutral-text-primary">1.000.000 IDR</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="font-sans text-neutral-text-muted">Risk Profile</span>
@@ -157,12 +157,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* HI Process Teaser */}
+      {/* Home Investment Process Teaser */}
       <section className="py-24 bg-neutral-bg-paper">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif font-bold text-3xl md:text-4xl text-neutral-text-primary mb-6">
-              THE HI PROCESS
+              THE HOME INVESTMENT PROCESS
             </h2>
             <p className="font-sans text-xl text-neutral-text-secondary max-w-3xl mx-auto">
               Our transparent 6-step investment journey ensures clarity, compliance, and optimal results 

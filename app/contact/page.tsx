@@ -112,7 +112,7 @@ export default function Contact() {
                       className="w-full px-4 py-3 border border-neutral-border rounded-sm focus:outline-none focus:ring-2 focus:ring-accent-gold"
                     >
                       <option value="">Select range</option>
-                      <option value="100jt-250jt">100jt - 250jt IDR</option>
+                      <option value="1.000.000-250jt">1.000.000 - 250jt IDR</option>
                       <option value="250jt-500jt">250jt - 500jt IDR</option>
                       <option value="500jt-1m">500jt - 1M IDR</option>
                       <option value="1m-5m">1M - 5M IDR</option>
@@ -310,7 +310,7 @@ export default function Contact() {
             {[
               {
                 q: 'How quickly can I start investing?',
-                a: 'Once we complete the HI Process (typically 2-4 weeks), you can begin investing. This includes RDN opening, KYC verification, and legal documentation.'
+                a: 'Once we complete the Home Investment Process (typically 2-4 weeks), you can begin investing. This includes RDN opening, KYC verification, and legal documentation.'
               },
               {
                 q: 'What documents do I need for consultation?',

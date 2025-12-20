@@ -89,7 +89,7 @@ export default function Process() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="font-serif font-bold text-4xl md:text-5xl text-neutral-text-primary mb-6">
-              THE HI PROCESS
+              THE HOME INVESTMENT PROCESS
             </h1>
             <p className="font-sans text-xl text-neutral-text-secondary max-w-4xl mx-auto leading-relaxed">
               Our transparent 6-step investment journey ensures clarity, compliance, and optimal results. 
@@ -108,12 +108,11 @@ export default function Process() {
 
             {steps.map((step, index) => {
               const IconComponent = step.icon
-              const isEven = index % 2 === 0
 
               return (
                 <div key={index} className="relative mb-16 lg:mb-24">
                   {/* Step Content */}
-                  <div className={`lg:w-1/2 ${isEven ? 'lg:pr-16 lg:text-right' : 'lg:ml-auto lg:pl-16'} ${isEven ? 'lg:mr-auto' : 'lg:ml-auto'}`}>
+                  <div className="lg:w-1/2 lg:pr-16">
                     <div className="bg-neutral-bg-paper p-8 rounded-lg shadow-card hover:shadow-hover transition-shadow duration-300">
                       {/* Mobile Step Number */}
                       <div className="lg:hidden flex items-center mb-6">
@@ -128,8 +127,8 @@ export default function Process() {
 
                       {/* Desktop Step Number */}
                       <div className="hidden lg:flex items-center mb-6">
-                        <IconComponent className={`w-8 h-8 text-accent-bronze ${isEven ? 'mr-4' : 'ml-4'}`} />
-                        <div className={`${isEven ? 'text-right' : ''}`}>
+                        <IconComponent className="w-8 h-8 text-accent-bronze mr-4" />
+                        <div>
                           <h3 className="font-serif font-bold text-xl text-neutral-text-primary">{step.title}</h3>
                           <p className="font-sans text-accent-bronze font-semibold">{step.subtitle}</p>
                         </div>
@@ -316,7 +315,7 @@ export default function Process() {
             READY TO START YOUR INVESTMENT JOURNEY?
           </h2>
           <p className="font-sans text-xl text-neutral-bg-base/90 mb-8 leading-relaxed">
-            Take the first step towards professional wealth management. Our team is ready to guide you through every stage of the HI Process.
+            Take the first step towards professional wealth management. Our team is ready to guide you through every stage of the Home Investment Process.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <button className="bg-accent-gold text-neutral-text-primary font-sans font-bold text-lg px-8 py-4 rounded-sm hover:bg-accent-gold-hover transition-colors duration-200 shadow-md">
