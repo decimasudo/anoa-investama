@@ -61,20 +61,6 @@ export default function Contact() {
                 <div className="space-y-10">
                   <div className="flex items-start gap-6">
                     <div className="w-12 h-12 border border-brand-500/30 rounded-full flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-5 h-5 text-brand-500" />
-                    </div>
-                    <div>
-                      <h4 className="font-sans font-bold text-sm tracking-widest uppercase text-brand-500 mb-2">Location</h4>
-                      <p className="font-serif text-xl leading-relaxed">
-                        Sudirman Central Business District<br/>
-                        District 8, Treasury Tower<br/>
-                        Jakarta, Indonesia 12190
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-6">
-                    <div className="w-12 h-12 border border-brand-500/30 rounded-full flex items-center justify-center flex-shrink-0">
                       <Clock className="w-5 h-5 text-brand-500" />
                     </div>
                     <div>

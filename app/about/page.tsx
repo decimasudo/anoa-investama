@@ -1,192 +1,194 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { GraduationCap, Award, Landmark, ArrowRight } from 'lucide-react'
+import { motion, Variants } from 'framer-motion'
+import { GraduationCap, TrendingUp, Shield, BarChart3, Search, Landmark, CheckCircle2 } from 'lucide-react'
 
 // Animation Variants
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0 }
+  visible: (custom: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] as const, delay: custom * 0.1 }
+  })
 }
 
 export default function About() {
-  const teamMembers = [
-    {
-      name: 'Dr. Adrian Wijaya',
-      title: 'Managing Partner',
-      education: 'PhD Economics, Cambridge University',
-      experience: '15+ years in Indonesian markets',
-      specialization: 'Value Investing & Risk Management',
-      initials: 'AW',
-      description: 'Former Goldman Sachs analyst with deep expertise in Southeast Asian markets and value investing strategies.'
-    },
-    {
-      name: 'Sarah Indrawati',
-      title: 'Senior Portfolio Manager',
-      education: 'MSc Finance, London School of Economics',
-      experience: '12+ years in wealth management',
-      specialization: 'Portfolio Optimization & ESG',
-      initials: 'SI',
-      description: 'Expert in sustainable investing with proven track record in Indonesian family office management.'
-    },
-    {
-      name: 'Michael Hartono',
-      title: 'Investment Director',
-      education: 'MBA Finance, Cambridge Judge Business School',
-      experience: '10+ years in asset management',
-      specialization: 'Alternative Investments & Hedging',
-      initials: 'MH',
-      description: 'Specializes in alternative investment strategies and currency hedging for Indonesian investors.'
-    }
-  ]
-
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-neutral-bg-base min-h-screen">
       
       {/* --- HERO SECTION --- */}
-      <section className="py-32 bg-neutral-bg-base border-b border-neutral-border/30">
+      <section className="relative py-32 border-b border-brand-900/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div 
             initial="hidden"
             animate="visible"
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            custom={0}
             variants={fadeInUp}
             className="text-center mb-16"
           >
-            <span className="inline-block py-1 px-3 border border-accent-bronze/30 rounded-full text-accent-bronze font-sans text-xs font-bold tracking-widest mb-6">
-              OUR STEWARDS
+            <span className="inline-block py-1 px-3 border border-brand-500/30 rounded-full text-brand-500 font-sans text-[10px] font-bold tracking-[0.2em] uppercase mb-6">
+              Our Philosophy
             </span>
-            <h1 className="font-serif font-bold text-5xl md:text-7xl text-brand-900 mb-8 leading-[1.1]">
-              INTELLECTUAL <br/> CAPITAL
+            <h1 className="font-serif font-bold text-5xl md:text-7xl text-brand-950 mb-8 leading-[1.1]">
+              EXPERIENCED <br/>
+              <span className="italic text-brand-500 font-medium">APPROACH.</span>
             </h1>
-            <p className="font-sans text-xl text-neutral-text-secondary max-w-3xl mx-auto leading-relaxed border-l-2 border-accent-gold pl-6">
-              Wealth management is not just about numbers; it is about judgment. Our team brings world-class academic rigor from Cambridge and LSE to the Indonesian market.
+            <p className="font-sans text-lg text-brand-900/70 max-w-3xl mx-auto leading-relaxed border-l-2 border-brand-500 pl-6 text-left md:text-center md:border-l-0 md:pl-0">
+              Already experienced over 10 years managing wealth. Anoa Investama operates as a dedicated extension for personal asset management, focusing on making your money work harder through disciplined stewardship.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* --- THE ANOA STANDARD (Narrative) --- */}
-      <section className="py-24 bg-neutral-bg-paper">
+      {/* --- HOW WE INVEST (Clean Light Version) --- */}
+      <section className="py-24 bg-neutral-bg-base">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          
+          <div className="text-center mb-20">
+             <h2 className="font-serif text-3xl md:text-5xl text-brand-950">How we invest</h2>
+             <div className="w-24 h-px bg-brand-500 mx-auto mt-6 opacity-50"></div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              variants={fadeInUp}
+            {/* Left Column: The Narrative (Dark Text on Light BG) */}
+            <motion.div 
+              initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1} variants={fadeInUp}
             >
-              <h2 className="font-serif font-bold text-4xl text-brand-900 mb-8">
-                THE ACADEMIC EDGE
-              </h2>
-              <div className="space-y-6 font-sans text-lg text-neutral-text-secondary leading-relaxed">
+              <h3 className="font-serif text-3xl md:text-4xl text-brand-950 mb-8 leading-tight">
+                Protecting investors’ capital is our priority
+              </h3>
+              <div className="font-sans text-brand-900/70 leading-relaxed space-y-6 text-lg font-light">
                 <p>
-                  In a market often driven by speculation and short-term trends, Anoa Investama stands apart through <span className="font-bold text-brand-900">disciplined academic rigor</span>.
+                  All our strategies emphasise absolute over relative returns. We believe that a portfolio that suffers fewer and less destructive drawdowns will be in a better position to compound returns over the long term.
                 </p>
                 <p>
-                  Our partners are not just investors; they are scholars of the market. With advanced degrees from the world's most prestigious institutions, we apply institutional-grade risk management frameworks to family wealth.
-                </p>
-                <p>
-                  We believe that preserving wealth across generations requires more than luck—it requires a fundamental understanding of economic cycles and value creation.
+                  We seek to avoid the common errors that frequently lead to permanent impairment of capital, specifically: Weak business models; Excessive debt; Very high valuations; and Poor corporate behaviours.
                 </p>
               </div>
             </motion.div>
 
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              variants={fadeInUp}
-              className="grid grid-cols-1 gap-8"
+            {/* Right Column: The Checklist Box (White Card with Soft Shadow) */}
+            <motion.div 
+              initial="hidden" whileInView="visible" viewport={{ once: true }} custom={2} variants={fadeInUp}
+              className="bg-white p-10 md:p-12 shadow-[0_20px_50px_rgba(27,24,20,0.08)] border border-brand-900/5 relative"
             >
-              {[
-                { icon: GraduationCap, title: "World-Class Alumni", desc: "Cambridge & LSE Graduates" },
-                { icon: Landmark, title: "Institutional Grade", desc: "Goldman Sachs Experience" },
-                { icon: Award, title: "Fiduciary Standard", desc: "Client Interests First" }
-              ].map((item, i) => (
-                <div key={i} className="flex items-start p-6 bg-neutral-bg-base border border-neutral-border/50 rounded-sm hover:border-accent-gold transition-colors duration-300">
-                  <div className="w-12 h-12 bg-neutral-bg-paper rounded-full flex items-center justify-center mr-6 border border-neutral-border">
-                    <item.icon className="w-6 h-6 text-accent-bronze" strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <h3 className="font-serif font-bold text-xl text-brand-900 mb-1">{item.title}</h3>
-                    <p className="font-sans text-sm text-neutral-text-muted tracking-wide uppercase">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
+              {/* Subtle top accent */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-brand-500/20"></div>
+
+              <h4 className="font-sans text-xs font-bold tracking-[0.15em] text-brand-500 uppercase mb-8 leading-relaxed">
+                WE SEEK TO MINIMISE THE RISK OF PERMANENT CAPITAL LOSS
+              </h4>
+              
+              <ul className="space-y-6">
+                {[
+                  "Our approach is conservative, avoiding unnecessary complexity.",
+                  "We aim to invest in exceptional companies that can grow at sustainably high returns.",
+                  "We seek to capture the compounding power of these great businesses through concentrated portfolios.",
+                  "We want to understand all the risks to any investment case."
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-4">
+                    <CheckCircle2 className="w-5 h-5 text-brand-500 flex-shrink-0 mt-1" />
+                    <span className="font-sans text-brand-950/80 leading-relaxed text-sm md:text-base font-medium">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
 
           </div>
         </div>
       </section>
 
-      {/* --- TEAM GRID (Monogram Cards) --- */}
-      <section className="py-32 bg-neutral-bg-base">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-24">
-             <div className="w-px h-16 bg-accent-gold mx-auto mb-8"></div>
-             <h2 className="font-serif font-bold text-4xl text-brand-900">LEADERSHIP</h2>
-          </div>
+      {/* --- STEWARDSHIP (Anonymized Team) --- */}
+      <section className="py-24 bg-neutral-surface border-t border-brand-900/5">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true }} custom={3} variants={fadeInUp}
+            className="p-12 relative"
+          >
+             {/* Decorative Quotes */}
+             <span className="block text-6xl font-serif text-brand-900/10 leading-none mb-6">“</span>
+             
+             <div className="mb-8">
+               <Landmark className="w-10 h-10 text-brand-500 mx-auto mb-6" />
+               <h3 className="font-serif text-3xl text-brand-950 mb-4">Investment Stewardship</h3>
+             </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            {teamMembers.map((member, index) => (
-              <motion.div 
-                key={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
-                variants={fadeInUp}
-                className="group relative bg-neutral-bg-paper border border-neutral-border/40 p-10 hover:shadow-hover transition-all duration-500"
-              >
-                {/* Decorative Monogram */}
-                <div className="absolute top-8 right-8 font-serif font-bold text-6xl text-brand-900/5 group-hover:text-accent-gold/10 transition-colors select-none">
-                  {member.initials}
-                </div>
+             <p className="font-sans text-lg text-brand-900/70 mb-8 leading-relaxed">
+               Our investment committee consists of seasoned professionals with over a decade of experience in Indonesian and global markets. 
+             </p>
+             
+             <div className="inline-flex items-center gap-4 px-8 py-4 bg-white rounded-full border border-brand-900/5 shadow-sm">
+                <GraduationCap className="w-5 h-5 text-brand-950" />
+                <span className="font-serif text-brand-950 font-bold tracking-wide">Alumni of Top Global Universities</span>
+             </div>
 
-                <div className="mb-8">
-                  <h3 className="font-serif font-bold text-2xl text-brand-900 mb-2">{member.name}</h3>
-                  <p className="font-sans text-xs font-bold text-accent-bronze tracking-widest uppercase mb-6">{member.title}</p>
-                  <div className="w-12 h-px bg-neutral-border group-hover:bg-accent-gold transition-colors"></div>
-                </div>
+          </motion.div>
 
-                <div className="space-y-4 mb-8">
-                  <div>
-                    <span className="block font-sans text-[10px] text-neutral-text-muted uppercase tracking-widest mb-1">Education</span>
-                    <p className="font-serif text-lg text-brand-900 italic">{member.education}</p>
-                  </div>
-                  <div>
-                    <span className="block font-sans text-[10px] text-neutral-text-muted uppercase tracking-widest mb-1">Expertise</span>
-                    <p className="font-sans text-sm text-neutral-text-secondary">{member.specialization}</p>
-                  </div>
-                </div>
-
-                <p className="font-sans text-sm text-neutral-text-secondary/80 leading-relaxed border-t border-neutral-border/30 pt-6">
-                  {member.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* --- CTA --- */}
-      <section className="py-24 bg-brand-900 text-neutral-bg-base">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="font-serif font-bold text-4xl mb-8">
-            WORK WITH THE BEST
-          </h2>
-          <p className="font-sans text-lg text-white/70 mb-10 leading-relaxed max-w-2xl mx-auto">
-            Partner with a team that combines global academic excellence with deep local market expertise.
-          </p>
-          <div className="flex justify-center">
-            <button className="bg-accent-gold text-brand-900 font-sans font-bold text-sm tracking-widest px-10 py-4 rounded-sm hover:bg-white transition-colors duration-300 flex items-center">
-              SCHEDULE INTRODUCTION
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </button>
+      {/* --- THE CLIENT ADVANTAGE (Grid) --- */}
+      <section className="py-32 bg-neutral-bg-base">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-20">
+             <span className="block font-sans text-[10px] tracking-[0.2em] uppercase text-brand-500 mb-4">Why Partner With Us?</span>
+             <h2 className="font-serif font-bold text-4xl text-brand-950">The Client Advantage</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { 
+                icon: TrendingUp, 
+                title: "Personalized Portfolio", 
+                desc: "Adjustable and diversified strategies tailored to your individual risk profile." 
+              },
+              { 
+                icon: Shield, 
+                title: "Passive Wealth", 
+                desc: "Sit back and relax. Let your money work for you under professional stewardship." 
+              },
+              { 
+                icon: Search, 
+                title: "Value Over Hype", 
+                desc: "We invest in wonderful companies with fundamentals, avoiding crash stocks and market noise." 
+              },
+              { 
+                icon: BarChart3, 
+                title: "Total Transparency", 
+                desc: "Full reporting on every movement and the 'WHY' behind each investment decision." 
+              },
+              { 
+                icon: TrendingUp, 
+                title: "Competitive Edge", 
+                desc: "Deep industry research gives us a sustainable advantage over competitors." 
+              },
+              { 
+                icon: Landmark, 
+                title: "Professional Team", 
+                desc: "Managed by experienced professionals dedicated to fiduciary standards." 
+              }
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i + 2}
+                variants={fadeInUp}
+                className={`p-8 border border-brand-900/5 bg-white hover:border-brand-500/30 hover:shadow-xl transition-all duration-500 group ${i >= 4 ? 'lg:col-span-2' : ''}`}
+              >
+                <item.icon className="w-8 h-8 text-brand-500 mb-6 group-hover:scale-110 transition-transform duration-500" strokeWidth={1} />
+                <h3 className="font-serif font-bold text-xl text-brand-950 mb-3">{item.title}</h3>
+                <p className="font-sans text-xs text-brand-900/60 leading-relaxed uppercase tracking-wider">
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

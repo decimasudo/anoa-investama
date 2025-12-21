@@ -1,13 +1,17 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import Link from 'next/link'
-import { Shield, TrendingUp, Check, ArrowRight, Lock } from 'lucide-react'
+import { Shield, TrendingUp, Check, ArrowRight, Lock, Leaf, Zap } from 'lucide-react'
 
 // Animation Variants
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0 }
+  visible: (custom: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] as const, delay: custom * 0.1 }
+  })
 }
 
 export default function Plans() {
@@ -20,8 +24,8 @@ export default function Plans() {
           <motion.div 
             initial="hidden"
             animate="visible"
+            custom={0}
             variants={fadeInUp}
-            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0 }}
             className="text-center mb-16"
           >
             <span className="inline-block py-1 px-3 border border-brand-500/30 rounded-full text-brand-500 font-sans text-[10px] font-bold tracking-[0.2em] uppercase mb-6">
@@ -43,69 +47,72 @@ export default function Plans() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
             
-            {/* PLAN 1: CONSERVATIVE */}
+            {/* PLAN 1: ANOA RIMBA (Stable/Forest) */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
+              custom={1}
               variants={fadeInUp}
-              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.1 }}
-              className="group bg-neutral-surface border border-brand-900/5 p-12 hover:border-brand-500/30 hover:shadow-2xl transition-all duration-500 relative overflow-hidden"
+              className="group bg-neutral-surface border border-brand-900/5 p-12 hover:border-brand-500/30 hover:shadow-2xl transition-all duration-500 relative overflow-hidden flex flex-col"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-brand-900/10 group-hover:bg-brand-500 transition-colors duration-500"></div>
               
               <div className="flex justify-between items-start mb-8">
                 <div>
-                  <h3 className="font-serif text-3xl text-brand-950 mb-2">Conservative</h3>
+                  <h3 className="font-serif text-3xl text-brand-950 mb-2">Anoa Rimba</h3>
                   <p className="font-sans text-xs tracking-widest uppercase text-brand-900/40">Capital Preservation</p>
                 </div>
-                <Shield className="w-8 h-8 text-brand-500" strokeWidth={1} />
+                {/* Leaf Icon to symbolize Nature/Rimba */}
+                <Leaf className="w-8 h-8 text-brand-500" strokeWidth={1} />
               </div>
 
-              <div className="mb-10">
-                <div className="flex items-baseline gap-2">
-                  <span className="font-serif text-6xl font-bold text-brand-950">6%</span>
-                  <span className="font-sans text-sm text-brand-900/60 font-medium">/ Annual Target</span>
-                </div>
+              <div className="mb-10 min-h-[80px]">
+                <p className="font-serif text-xl text-brand-950 leading-relaxed">
+                  Deep roots, steady growth.
+                </p>
+                <p className="font-sans text-sm text-brand-900/60 mt-2">
+                  Designed for stability and protecting the real value of wealth.
+                </p>
               </div>
 
-              <div className="space-y-6 mb-12 border-t border-brand-900/5 pt-8">
+              <div className="space-y-6 mb-12 border-t border-brand-900/5 pt-8 flex-grow">
                 <div className="flex items-start gap-4">
                   <Check className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="block font-sans text-sm font-bold text-brand-950">Allocation &gt;80% Safe Assets</span>
-                    <p className="font-sans text-xs text-brand-900/60 mt-1">Government bonds, blue-chip dividends, and cash equivalents.</p>
+                    <span className="block font-sans text-sm font-bold text-brand-950">Primary Allocation: Safe Assets</span>
+                    <p className="font-sans text-xs text-brand-900/60 mt-1">Focus on government bonds and blue-chip stability.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <Check className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" />
                   <div>
                     <span className="block font-sans text-sm font-bold text-brand-950">Low Volatility</span>
-                    <p className="font-sans text-xs text-brand-900/60 mt-1">Designed for steady income and retirement planning.</p>
+                    <p className="font-sans text-xs text-brand-900/60 mt-1">Ideal for retirement planning and risk-averse capital.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <Lock className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="block font-sans text-sm font-bold text-brand-950">Minimum Entry: 100.000.000 IDR</span>
-                    <p className="font-sans text-xs text-brand-900/60 mt-1">Accessible entry for foundational wealth building.</p>
+                    <span className="block font-sans text-sm font-bold text-brand-950">Entry: IDR 100.000.000</span>
+                    <p className="font-sans text-xs text-brand-900/60 mt-1">Accessible foundation for long-term wealth.</p>
                   </div>
                 </div>
               </div>
 
               <button className="w-full border border-brand-950 text-brand-950 font-sans text-xs font-bold tracking-[0.2em] uppercase py-4 hover:bg-brand-950 hover:text-neutral-bg-base transition-all duration-300">
-                Select Strategy
+                Select Rimba
               </button>
             </motion.div>
 
-            {/* PLAN 2: GROWTH */}
+            {/* PLAN 2: ANOA PERKASA (Mighty/Strong) */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
+              custom={2}
               variants={fadeInUp}
-              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.2 }}
-              className="group bg-brand-950 text-neutral-bg-base p-12 relative overflow-hidden shadow-2xl"
+              className="group bg-brand-950 text-neutral-bg-base p-12 relative overflow-hidden shadow-2xl flex flex-col"
             >
               {/* Gold Gradient Border Effect */}
               <div className="absolute inset-0 border border-brand-500/20 pointer-events-none"></div>
@@ -115,45 +122,48 @@ export default function Plans() {
 
               <div className="flex justify-between items-start mb-8">
                 <div>
-                  <h3 className="font-serif text-3xl text-white mb-2">Growth</h3>
+                  <h3 className="font-serif text-3xl text-white mb-2">Anoa Perkasa</h3>
                   <p className="font-sans text-xs tracking-widest uppercase text-white/40">Wealth Accumulation</p>
                 </div>
-                <TrendingUp className="w-8 h-8 text-brand-500" strokeWidth={1} />
+                {/* Zap/Lightning Icon to symbolize Power/Perkasa */}
+                <Zap className="w-8 h-8 text-brand-500" strokeWidth={1} />
               </div>
 
-              <div className="mb-10">
-                <div className="flex items-baseline gap-2">
-                  <span className="font-serif text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-brand-500">10%</span>
-                  <span className="font-sans text-sm text-white/60 font-medium">/ Annual Target</span>
-                </div>
+              <div className="mb-10 min-h-[80px]">
+                <p className="font-serif text-xl text-white leading-relaxed">
+                  Higher risk, higher potential.
+                </p>
+                <p className="font-sans text-sm text-white/60 mt-2">
+                  An aggressive strategy designed for maximum capital appreciation over the long term.
+                </p>
               </div>
 
-              <div className="space-y-6 mb-12 border-t border-white/10 pt-8">
+              <div className="space-y-6 mb-12 border-t border-white/10 pt-8 flex-grow">
                 <div className="flex items-start gap-4">
                   <Check className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="block font-sans text-sm font-bold text-white">Allocation &gt;60% Growth</span>
-                    <p className="font-sans text-xs text-white/50 mt-1">Quality equities, private equity, and sector-specific ETFs.</p>
+                    <span className="block font-sans text-sm font-bold text-white">Primary Allocation: Growth</span>
+                    <p className="font-sans text-xs text-white/50 mt-1">Quality equities, private equity, and sector-specific opportunities.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <Check className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" />
+                  <TrendingUp className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="block font-sans text-sm font-bold text-white">Moderate Risk</span>
-                    <p className="font-sans text-xs text-white/50 mt-1">Balanced approach for long-term capital appreciation.</p>
+                    <span className="block font-sans text-sm font-bold text-white">Market Exposure</span>
+                    <p className="font-sans text-xs text-white/50 mt-1">Includes exposure to more volatile assets for superior returns.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <Lock className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="block font-sans text-sm font-bold text-white">Minimum Entry: 500.000.000 IDR</span>
-                    <p className="font-sans text-xs text-white/50 mt-1">Dedicated portfolio management and bi-weekly reviews.</p>
+                    <span className="block font-sans text-sm font-bold text-white">Entry: IDR 500.000.000</span>
+                    <p className="font-sans text-xs text-white/50 mt-1">Dedicated portfolio management priority.</p>
                   </div>
                 </div>
               </div>
 
               <button className="w-full bg-brand-500 text-brand-950 font-sans text-xs font-bold tracking-[0.2em] uppercase py-4 hover:bg-white transition-all duration-300">
-                Apply for Access
+                Apply for Perkasa
               </button>
             </motion.div>
 
@@ -165,7 +175,7 @@ export default function Plans() {
       <section className="py-24 bg-neutral-surface border-t border-brand-900/5">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl text-brand-950">Comparative Analysis</h2>
+            <h2 className="font-serif text-3xl text-brand-950">Strategy Comparison</h2>
           </div>
 
           <div className="overflow-x-auto">
@@ -173,18 +183,18 @@ export default function Plans() {
               <thead>
                 <tr className="border-b-2 border-brand-900/10">
                   <th className="py-6 pl-4 font-serif text-lg text-brand-950 font-normal">Feature</th>
-                  <th className="py-6 px-4 font-sans text-xs font-bold tracking-widest text-brand-900/50 uppercase text-center">Conservative</th>
-                  <th className="py-6 pr-4 font-sans text-xs font-bold tracking-widest text-brand-500 uppercase text-center">Growth</th>
+                  <th className="py-6 px-4 font-sans text-xs font-bold tracking-widest text-brand-900/50 uppercase text-center">Anoa Rimba</th>
+                  <th className="py-6 pr-4 font-sans text-xs font-bold tracking-widest text-brand-500 uppercase text-center">Anoa Perkasa</th>
                 </tr>
               </thead>
               <tbody className="font-sans text-sm text-brand-900/70">
                 {[
-                  ['Annual Target', '6%', '10%'],
-                  ['Risk Profile', 'Low', 'Moderate'],
+                  ['Objective', 'Preservation', 'Accumulation'],
+                  ['Risk Profile', 'Low / Stable', 'High / Aggressive'],
+                  ['Potential Return', 'Moderate', 'High'],
                   ['Time Horizon', '1-3 Years', '5+ Years'],
-                  ['Reporting', 'Monthly', 'Bi-Weekly'],
                   ['Advisory Access', 'Standard', 'Priority'],
-                  ['Dividends', 'Reinvested/Payout', 'Reinvested']
+                  ['Entry Requirement', 'IDR 100.000.000', 'IDR 500.000.000']
                 ].map(([feature, con, gro], i) => (
                   <tr key={i} className="border-b border-brand-900/5 hover:bg-white transition-colors">
                     <td className="py-6 pl-4 font-medium text-brand-950">{feature}</td>
@@ -202,7 +212,7 @@ export default function Plans() {
       <section className="py-24 bg-brand-950 text-neutral-bg-base text-center">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="font-serif text-3xl md:text-4xl mb-8">
-            Not sure which plan fits?
+            Not sure which path to take?
           </h2>
           <p className="font-sans text-white/60 mb-10 leading-relaxed">
             Our team can help assess your risk profile and recommend the optimal allocation for your family's goals.
