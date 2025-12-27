@@ -4,7 +4,7 @@ import { motion, Variants } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, Check, Shield, TrendingUp, Lock } from 'lucide-react'
 
-// --- Animation Variants (Slow & Elegant) ---
+// --- Animation Variants ---
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: (custom: number) => ({
@@ -13,16 +13,21 @@ const fadeInUp: Variants = {
     transition: {
       delay: custom * 0.2,
       duration: 1.2,
-      ease: [0.25, 0.1, 0.25, 1] as const 
+      ease: [0.25, 0.1, 0.25, 1]
     }
   })
 }
 
+// FIX: Added ': Variants' type here to fix the build error
 const lineDraw: Variants = {
   hidden: { scaleX: 0 },
   visible: { 
     scaleX: 1,
-    transition: { duration: 1.5, ease: "easeInOut" as const, delay: 0.5 }
+    transition: { 
+      duration: 1.5, 
+      ease: "easeInOut", 
+      delay: 0.5 
+    }
   }
 }
 
@@ -34,13 +39,12 @@ export default function Home() {
       <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-6 pt-32 pb-20 border-b border-brand-900/5">
         <div className="max-w-4xl mx-auto text-center">
           
-          {/* Logo Mark - Blended into 'paper' */}
+          {/* Logo Mark */}
           <motion.div 
             initial="hidden"
             animate="visible"
             className="mb-10 mx-auto w-32 h-32 md:w-48 md:h-48"
           >
-             {/* mix-blend-multiply makes it look like ink printed on the paper */}
              <motion.img 
                src="/logo.png" 
                alt="Anoa Bull"
@@ -62,7 +66,6 @@ export default function Home() {
             <span className="italic font-light text-brand-500 pb-2">Indonesian families.</span>
           </motion.h1>
 
-          {/* Elegant Divider */}
           <motion.div 
             initial="hidden"
             animate="visible"
@@ -70,7 +73,6 @@ export default function Home() {
             className="h-px w-24 bg-brand-900/20 mx-auto mb-8"
           ></motion.div>
 
-          {/* Subtext */}
           <motion.p 
             custom={2}
             initial="hidden"
@@ -91,11 +93,10 @@ export default function Home() {
       </section>
 
 
-      {/* --- PHILOSOPHY SECTION (Why Anoa) --- */}
+      {/* --- PHILOSOPHY SECTION --- */}
       <section id="philosophy" className="py-32 px-6 bg-brand-950 text-neutral-bg-base border-t border-brand-900/5 shadow-inner">
         <div className="max-w-5xl mx-auto">
           
-          {/* Section Header */}
           <div className="text-center mb-20">
             <span className="block text-[10px] tracking-[0.3em] uppercase text-brand-500 mb-6">Our Profile</span>
             <h2 className="font-serif text-3xl md:text-5xl mb-8 leading-tight text-neutral-bg-base">
@@ -109,7 +110,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Benefits Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-24">
             {[
               { 
@@ -146,7 +146,7 @@ export default function Home() {
       </section>
 
 
-      {/* --- PLANS SECTION (Rebranded) --- */}
+      {/* --- PLANS SECTION (UPDATED) --- */}
       <section id="plans" className="py-32 px-6 bg-neutral-bg-base">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-20">
@@ -155,7 +155,7 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Plan 1: Anoa Rimba (Paper Style) */}
+            {/* Plan 1: Anoa Rimba */}
             <div className="relative group border border-brand-900/10 p-12 text-center hover:border-brand-500/30 transition-all duration-500 bg-neutral-surface shadow-sm">
               <h3 className="text-3xl mb-2 font-serif text-brand-900">Anoa Rimba</h3>
               <p className="font-sans text-[10px] uppercase tracking-[0.2em] mb-8 text-brand-900/40">Capital Preservation</p>
@@ -167,20 +167,20 @@ export default function Home() {
                 </li>
                 <li className="flex items-center justify-center gap-2">
                   <span className="w-1.5 h-1.5 bg-brand-500 rounded-full"></span>
-                  Min. Entry: IDR 100.000.000
+                  Initial Investment: IDR 100.000.000
                 </li>
               </ul>
               
               <Link href="/plans" className="btn-luxury w-full inline-block">Select Rimba</Link>
             </div>
 
-            {/* Plan 2: Anoa Perkasa (Dark/Rich Style) */}
+            {/* Plan 2: Anoa Perkasa */}
             <div className="relative group border border-brand-900/10 bg-brand-950 p-12 text-center text-neutral-bg-base shadow-2xl shadow-brand-900/20">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-brand-500 to-brand-400 text-brand-950 text-[10px] uppercase tracking-[0.2em] px-4 py-1 font-bold shadow-lg">
                 Recommended
               </div>
               <h3 className="text-3xl mb-2 font-serif text-neutral-bg-base">Anoa Perkasa</h3>
-              <p className="font-sans text-[10px] uppercase tracking-[0.2em] mb-8 text-brand-500">Wealth Accumulation</p>
+              <p className="font-sans text-[10px] uppercase tracking-[0.2em] mb-8 text-brand-500">Preservation + Accumulation</p>
               
               <ul className="space-y-4 mb-10 font-sans text-sm text-neutral-bg-base/70">
                 <li className="flex items-center justify-center gap-2">
@@ -189,7 +189,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-center justify-center gap-2">
                   <span className="w-1.5 h-1.5 bg-brand-500 rounded-full"></span>
-                  Min. Entry: IDR 500.000.000
+                  Initial Investment: IDR 500.000.000
                 </li>
               </ul>
               
@@ -202,7 +202,7 @@ export default function Home() {
       </section>
 
 
-      {/* --- PROCESS SECTION (Simplified / Mysterious) --- */}
+      {/* --- PROCESS SECTION --- */}
       <section id="process" className="py-32 px-6 bg-neutral-bg-dark border-t border-brand-900/5">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-24">
@@ -210,7 +210,6 @@ export default function Home() {
             <h2 className="font-serif text-3xl md:text-5xl text-brand-950">The Protocol.</h2>
           </div>
 
-          {/* Vertical Timeline - HEADINGS ONLY */}
           <div className="relative border-l border-brand-900/10 ml-6 md:ml-12 space-y-16">
             
             {/* Step 1 */}
@@ -234,7 +233,7 @@ export default function Home() {
               <h3 className="text-2xl font-serif text-brand-900">Legal Signing (SPPD)</h3>
             </div>
 
-            {/* Step 4 (Formerly 5) - Access Handover REMOVED */}
+            {/* Step 4 */}
             <div className="relative pl-12 md:pl-24 group">
               <span className="absolute -left-[5px] top-3 w-2.5 h-2.5 rounded-full bg-brand-950 ring-4 ring-neutral-bg-dark group-hover:bg-brand-500 transition-colors"></span>
               <span className="font-serif text-4xl text-brand-900/10 absolute -left-8 top-[-5px] -translate-x-full md:left-0 md:-translate-x-16 select-none group-hover:text-brand-500/20 transition-colors">04</span>

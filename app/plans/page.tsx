@@ -2,7 +2,7 @@
 
 import { motion, Variants } from 'framer-motion'
 import Link from 'next/link'
-import { Shield, TrendingUp, Check, ArrowRight, Lock, Leaf, Zap } from 'lucide-react'
+import { TrendingUp, Check, ArrowRight, Lock, Leaf, Zap } from 'lucide-react'
 
 // Animation Variants
 const fadeInUp: Variants = {
@@ -47,7 +47,7 @@ export default function Plans() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
             
-            {/* PLAN 1: ANOA RIMBA (Stable/Forest) */}
+            {/* PLAN 1: ANOA RIMBA */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
@@ -63,7 +63,6 @@ export default function Plans() {
                   <h3 className="font-serif text-3xl text-brand-950 mb-2">Anoa Rimba</h3>
                   <p className="font-sans text-xs tracking-widest uppercase text-brand-900/40">Capital Preservation</p>
                 </div>
-                {/* Leaf Icon to symbolize Nature/Rimba */}
                 <Leaf className="w-8 h-8 text-brand-500" strokeWidth={1} />
               </div>
 
@@ -94,7 +93,8 @@ export default function Plans() {
                 <div className="flex items-start gap-4">
                   <Lock className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="block font-sans text-sm font-bold text-brand-950">Entry: IDR 100.000.000</span>
+                    {/* REVISION 1: Changed Entry to Initial Investment */}
+                    <span className="block font-sans text-sm font-bold text-brand-950">Initial Investment: IDR 100.000.000</span>
                     <p className="font-sans text-xs text-brand-900/60 mt-1">Accessible foundation for long-term wealth.</p>
                   </div>
                 </div>
@@ -105,7 +105,7 @@ export default function Plans() {
               </button>
             </motion.div>
 
-            {/* PLAN 2: ANOA PERKASA (Mighty/Strong) */}
+            {/* PLAN 2: ANOA PERKASA */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
@@ -114,7 +114,6 @@ export default function Plans() {
               variants={fadeInUp}
               className="group bg-brand-950 text-neutral-bg-base p-12 relative overflow-hidden shadow-2xl flex flex-col"
             >
-              {/* Gold Gradient Border Effect */}
               <div className="absolute inset-0 border border-brand-500/20 pointer-events-none"></div>
               <div className="absolute top-0 right-0 bg-brand-500 text-brand-950 text-[10px] font-bold tracking-widest uppercase px-4 py-1">
                 Recommended
@@ -123,9 +122,9 @@ export default function Plans() {
               <div className="flex justify-between items-start mb-8">
                 <div>
                   <h3 className="font-serif text-3xl text-white mb-2">Anoa Perkasa</h3>
-                  <p className="font-sans text-xs tracking-widest uppercase text-white/40">Wealth Accumulation</p>
+                  {/* REVISION 3: Changed to Preservation + Accumulation */}
+                  <p className="font-sans text-xs tracking-widest uppercase text-white/40">Preservation + Accumulation</p>
                 </div>
-                {/* Zap/Lightning Icon to symbolize Power/Perkasa */}
                 <Zap className="w-8 h-8 text-brand-500" strokeWidth={1} />
               </div>
 
@@ -156,7 +155,8 @@ export default function Plans() {
                 <div className="flex items-start gap-4">
                   <Lock className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="block font-sans text-sm font-bold text-white">Entry: IDR 500.000.000</span>
+                    {/* REVISION 1: Changed Entry to Initial Investment */}
+                    <span className="block font-sans text-sm font-bold text-white">Initial Investment: IDR 500.000.000</span>
                     <p className="font-sans text-xs text-white/50 mt-1">Dedicated portfolio management priority.</p>
                   </div>
                 </div>
@@ -189,12 +189,14 @@ export default function Plans() {
               </thead>
               <tbody className="font-sans text-sm text-brand-900/70">
                 {[
-                  ['Objective', 'Preservation', 'Accumulation'],
+                  // REVISION 3: Updated Objective
+                  ['Objective', 'Preservation', 'Preservation + Accumulation'], 
                   ['Risk Profile', 'Low / Stable', 'High / Aggressive'],
                   ['Potential Return', 'Moderate', 'High'],
-                  ['Time Horizon', '1-3 Years', '5+ Years'],
+                  // REVISION 2: Removed Time Horizon Row
                   ['Advisory Access', 'Standard', 'Priority'],
-                  ['Entry Requirement', 'IDR 100.000.000', 'IDR 500.000.000']
+                  // REVISION 1: Entry Requirement -> Initial Investment
+                  ['Initial Investment', 'IDR 100.000.000', 'IDR 500.000.000'] 
                 ].map(([feature, con, gro], i) => (
                   <tr key={i} className="border-b border-brand-900/5 hover:bg-white transition-colors">
                     <td className="py-6 pl-4 font-medium text-brand-950">{feature}</td>
