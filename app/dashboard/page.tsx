@@ -45,28 +45,25 @@ export default function Dashboard() {
         {/* TOP STATS ROW */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
            
-           {/* Total Balance (Highlighted Card) */}
+           {/* Net Asset Value */}
            <motion.div 
              initial={{ opacity: 0, y: 20 }} 
              animate={{ opacity: 1, y: 0 }} 
-             className="bg-brand-950 p-8 text-neutral-bg-base shadow-2xl relative overflow-hidden group rounded-sm"
+             className="bg-white p-8 border border-brand-900/5 shadow-lg rounded-sm hover:border-brand-500/30 transition-colors duration-300 relative overflow-hidden group"
            >
-              {/* Background Decoration */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-brand-500/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-
               <div className="flex justify-between items-start mb-6">
-                <div className="p-2 bg-white/5 rounded-full">
-                  <Wallet className="w-6 h-6 text-brand-500" strokeWidth={1.5} />
+                <div className="p-2 bg-brand-950/5 rounded-full">
+                  <Wallet className="w-6 h-6 text-brand-950" strokeWidth={1.5} />
                 </div>
                 <span className="font-sans text-[10px] uppercase tracking-widest text-brand-500 bg-brand-500/10 px-2 py-1 rounded">
                   Live
                 </span>
               </div>
               
-              <p className="font-sans text-[10px] uppercase tracking-widest text-white/40 mb-2">Net Asset Value</p>
-              <h2 className="font-serif text-3xl md:text-4xl mb-4 text-white">IDR 1.250.000.000</h2>
-              <div className="flex items-center gap-2 text-green-400 text-xs font-sans font-bold tracking-wide">
-                 <ArrowUpRight className="w-3 h-3" /> +12.5% <span className="text-white/30 font-normal">YTD Performance</span>
+              <p className="font-sans text-[10px] uppercase tracking-widest text-brand-900/40 mb-2">Net Asset Value</p>
+              <h2 className="font-serif text-3xl md:text-4xl mb-4 text-brand-950">IDR 1.250.000.000</h2>
+              <div className="flex items-center gap-2 text-green-600 text-xs font-sans font-bold tracking-wide">
+                 <ArrowUpRight className="w-3 h-3" /> +12.5% <span className="text-brand-900/60 font-normal">YTD Performance</span>
               </div>
            </motion.div>
 
