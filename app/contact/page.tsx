@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Clock, ArrowRight, MessageSquare } from 'lucide-react'
+import { Mail, Phone, MapPin, Clock, ArrowRight, MessageSquare, Instagram, Linkedin } from 'lucide-react'
 import Link from 'next/link'
 
 // Animation Variants
@@ -74,16 +74,18 @@ export default function Contact() {
 
                   <div className="flex items-start gap-6">
                     <div className="w-12 h-12 border border-brand-500/30 rounded-full flex items-center justify-center flex-shrink-0">
-                      <MessageSquare className="w-5 h-5 text-brand-500" />
+                      <Instagram className="w-5 h-5 text-brand-500" />
                     </div>
                     <div>
-                      <h4 className="font-sans font-bold text-sm tracking-widest uppercase text-brand-500 mb-2">Direct Line</h4>
-                      <p className="font-serif text-xl mb-1">+62 21 5555 0000</p>
-                      <a href="mailto:hello@anoainvestama.com" className="font-sans text-sm text-white/50 hover:text-white transition-colors">
-                        hello@anoainvestama.com
+                      <h4 className="font-sans font-bold text-sm tracking-widest uppercase text-brand-500 mb-2">Instagram</h4>
+                      <a href="https://instagram.com/anoa.investama" target="_blank" rel="noopener noreferrer" className="font-serif text-xl mb-1 text-white hover:text-brand-500 transition-colors">
+                        @anoa.investama
                       </a>
+                      <p className="font-sans text-sm text-white/50">Follow for insights</p>
                     </div>
                   </div>
+
+                  
                 </div>
               </div>
 

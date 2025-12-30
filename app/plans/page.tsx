@@ -101,7 +101,7 @@ export default function Plans() {
               </div>
 
               <button className="w-full border border-brand-950 text-brand-950 font-sans text-xs font-bold tracking-[0.2em] uppercase py-4 hover:bg-brand-950 hover:text-neutral-bg-base transition-all duration-300">
-                Select Rimba
+                Apply for Rimba
               </button>
             </motion.div>
 
